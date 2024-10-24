@@ -164,10 +164,10 @@ namespace EcommerceWebApi.Controllers{
         }
 
         [HttpGet("productsByCategory")]
-        public List<Category> GetProductsByCategories(string categoryId, int page)
+        public List<Product> GetProductsByCategories(string categoryId, int page)
         {
-            List<Category> categories = new List<Category>();
-            return categories;
+            var products = _productService.GetAllProductsByCategory(categoryId, page);
+            return products;
         }
     }
 }
