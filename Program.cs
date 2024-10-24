@@ -1,0 +1,50 @@
+using EcommerceWebApi.Interfaces;
+using EcommerceWebApi.Models;
+using EcommerceWebApi.Services;
+using MongoDbService = EcommerceWebApi.Services.MongoDbService;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<MongoDbSettings>(
+    builder.Configuration.GetSection("MongoDbSettings"));
+builder.Services.AddSingleton<IMongoDbService, MongoDbService>();
+builder.Services.AddSingleton<IProductService, ProductService>();
+builder.Services.AddSingleton<CustomerService>();
+
+builder.Services.AddControllers();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200") // Angular app URL
+                .AllowAnyHeader()
+                .WithMethods("POST", "GET", "PUT", "PATCH", "DELETE");
+        });
+});
+
+// Add services to the container.
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseCors("AllowSpecificOrigin");
+
+app.UseHttpsRedirection();
+
+
+
+app.MapControllers();
+app.Run();
+
+
