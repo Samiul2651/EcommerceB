@@ -22,8 +22,10 @@ namespace EcommerceWebApi.Services
             return _database.GetCollection<T>(collectionName);
         }
 
+        
         public bool IsAlive()
         {
+            //_database.GetCollection<Product>(nameof(Product));
             try
             {
                 var command = new JsonCommand<BsonDocument>("{ ping: 1 }");

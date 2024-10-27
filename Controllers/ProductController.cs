@@ -27,6 +27,7 @@ namespace EcommerceWebApi.Controllers{
             if (productAddResult == true)
             {
                 return Created(uri, newProduct);
+                //return Ok();
             }
             else
             {

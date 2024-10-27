@@ -23,9 +23,9 @@ namespace EcommerceWebApi.Controllers
             Console.WriteLine(result);
             if (result)
             {
-                return Ok(new { message = "Ok" });
+                return Ok(new { message = "Ok"});
             }
-            else return NotFound();
+            return NotFound();
             //return _customerService.LogIn(email, password);
         }
 

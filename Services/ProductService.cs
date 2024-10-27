@@ -113,10 +113,10 @@ namespace EcommerceWebApi.Services
             var filteredProducts = new List<Product>();
             foreach (var product in products)
             {
-                if ((product.Name).Contains(input) && input != "")
+                if ((product.Name).ToLower().Contains(input.ToLower()) && input != "")
                 {
                     filteredProducts.Add(product);
-                    Console.WriteLine(product.Name);
+                    //Console.WriteLine(product.Name);
                 }
                 else if(input == "")filteredProducts.Add(product);
             }
@@ -139,10 +139,10 @@ namespace EcommerceWebApi.Services
             var filteredProducts = new List<Product>();
             foreach (var product in products)
             {
-                if ((product.Id).Contains(input) && input != "")
+                if ((product.Id.ToLower()).Contains(input.ToLower()) && input != "")
                 {
                     filteredProducts.Add(product);
-                    Console.WriteLine(product.Name);
+                    //Console.WriteLine(product.Name);
                 }
                 else if (input == "") filteredProducts.Add(product);
             }
