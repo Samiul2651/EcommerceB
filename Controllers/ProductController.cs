@@ -21,7 +21,7 @@ namespace EcommerceWebApi.Controllers{
         [HttpPost]
         public IActionResult AddProduct(Product newProduct)
         {
-            Console.WriteLine(newProduct.Price);
+            //Console.WriteLine(newProduct.Price);
             bool productAddResult = _productService.AddProduct(newProduct);
             var uri = Url.Action("GetProduct", new { id = newProduct.Id });
             if (productAddResult == true)
@@ -163,11 +163,25 @@ namespace EcommerceWebApi.Controllers{
             return _productService.GetAllCategories();
         }
 
-        [HttpGet("productsByCategory")]
-        public List<Product> GetProductsByCategories(string categoryId, int page)
+        [HttpGet("productsByCategory/{categoryId}/{page}")]
+        public List<Product> GetProductsByCategory(string categoryId, int page)
         {
             var products = _productService.GetAllProductsByCategory(categoryId, page);
             return products;
+        }
+
+        [HttpGet("rootCategories")]
+        public List<Category> GetRootCategories()
+        {
+            var categories = _productService.GetRootCategories();
+            return categories;
+        }
+
+        [HttpGet("getCategoryByParent/{categoryId}")]
+        public List<Category> GetCategoryByParent(string categoryId)
+        {
+            var categories = _productService.GetCategoriesByParent(categoryId);
+            return categories;
         }
     }
 }

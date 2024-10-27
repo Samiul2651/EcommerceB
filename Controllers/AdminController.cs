@@ -24,7 +24,12 @@ namespace EcommerceWebApi.Controllers
         [HttpPost("addCategory")]
         public void AddCategory(Category category)
         {
-            _mongoDbService.AddObject(nameof(Category), category);
+            Category newCategory = new Category
+            {
+                Name = category.Name,
+                ParentCategoryId = category.ParentCategoryId
+            };
+            _mongoDbService.AddObject(nameof(Category), newCategory);
         }
 
     }

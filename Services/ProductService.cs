@@ -182,7 +182,30 @@ namespace EcommerceWebApi.Services
                 products.AddRange(productsByCategory);
                 queue.Dequeue();
             }
-            return products;
+            var sortedProducts = products.OrderByDescending(p => p.TrendingScore).ToList();
+            var productsByPage = new List<Product>();
+            int startingIndex = Math.Min((page - 1) * 10, sortedProducts.Count);
+            int endingIndex = Math.Min(sortedProducts.Count, page * 10);
+            //Console.WriteLine(startingIndex + " "  +  endingIndex);
+            for (int i = startingIndex; i < endingIndex; i++)
+            {
+                productsByPage.Add(sortedProducts[i]);
+            }
+            return productsByPage;
+        }
+
+        public List<Category> GetRootCategories()
+        {
+            var categories = _mongoDbService.GetList<Category>(nameof(Category));
+            var rootCategories = categories.FindAll(category => category.ParentCategoryId == "");
+            return rootCategories;
+        }
+
+        public List<Category> GetCategoriesByParent(string categoryId)
+        {
+            var categories = _mongoDbService.GetList<Category>(nameof(Category));
+            var filteredCatgories = categories.FindAll(c => c.ParentCategoryId == categoryId);
+            return filteredCatgories;
         }
 
 
