@@ -18,9 +18,9 @@ namespace EcommerceWebApi.Controllers
         [HttpPost("login")]
         public IActionResult LogIn(Customer customer)
         {
-            Console.WriteLine("Recieved");
+            //Console.WriteLine("Recieved");
             bool result = _customerService.LogIn(customer.Email, customer.Password);
-            Console.WriteLine(result);
+            //Console.WriteLine(result);
             if (result)
             {
                 return Ok(new { message = "Ok"});
@@ -32,7 +32,7 @@ namespace EcommerceWebApi.Controllers
         [HttpPost]
         public IActionResult Register(Customer customer)
         {
-            Console.WriteLine(customer);
+            //Console.WriteLine(customer);
             bool result = _customerService.Register(customer);
             if (result)
             {
