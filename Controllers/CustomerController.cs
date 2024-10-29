@@ -1,21 +1,29 @@
-﻿using EcommerceWebApi.Models;
+﻿using EcommerceWebApi.DTO;
+using EcommerceWebApi.Interfaces;
+using EcommerceWebApi.Models;
 using EcommerceWebApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EcommerceWebApi.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CustomerController : Controller
     {
-        private CustomerService _customerService;
+        private ICustomerService _customerService;
+        private ITokenService _tokenService;
 
-        public CustomerController(CustomerService customerService)
+        public CustomerController(ICustomerService customerService, ITokenService tokenService)
         {
             _customerService = customerService;
+            _tokenService=tokenService;
         }
 
+        //[AllowAnonymous]
         [HttpPost("login")]
+        //public IActionResult LogIn(Customer customer)
         public IActionResult LogIn(Customer customer)
         {
             //Console.WriteLine("Recieved");
@@ -23,12 +31,22 @@ namespace EcommerceWebApi.Controllers
             //Console.WriteLine(result);
             if (result)
             {
-                return Ok(new { message = "Ok"});
+                CustomerDTO customerDto = new CustomerDTO
+                {
+                    name = customer.Name,
+                    token = _tokenService.GetToken(customer)
+                };
+                return Ok(new
+                {
+                    message = "Ok",
+                    customer = customerDto
+                });
             }
+
             return NotFound();
-            //return _customerService.LogIn(email, password);
         }
 
+        
         [HttpPost]
         public IActionResult Register(Customer customer)
         {

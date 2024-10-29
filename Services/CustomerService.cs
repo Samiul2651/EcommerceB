@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace EcommerceWebApi.Services
 {
-    public class CustomerService
+    public class CustomerService : ICustomerService
     {
         private IMongoDbService _mongoDbService;
 

@@ -2,9 +2,12 @@ using EcommerceWebApi.Constants;
 using EcommerceWebApi.Interfaces;
 using EcommerceWebApi.Models;
 using EcommerceWebApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EcommerceWebApi.Controllers{
+
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : Controller {
@@ -61,6 +64,7 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
+        //[Authorize]
         [HttpGet("{id}")]
         public IActionResult GetProduct(string id)
         {
@@ -79,6 +83,7 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
+        [Authorize]
         [HttpGet("getProducts/{page}")]
         public IActionResult GetProductsByPage(int page)
         {
