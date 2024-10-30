@@ -1,10 +1,12 @@
 ﻿using EcommerceWebApi.Interfaces;
 using EcommerceWebApi.Models;
 using EcommerceWebApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EcommerceWebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class AdminController : Controller

@@ -1,4 +1,6 @@
-﻿using EcommerceWebApi.Interfaces;
+﻿using EcommerceWebApi.Constants;
+using EcommerceWebApi.DTO;
+using EcommerceWebApi.Interfaces;
 using EcommerceWebApi.Models;
 using Microsoft.Extensions.Options;
 
@@ -13,23 +15,46 @@ namespace EcommerceWebApi.Services
             _mongoDbService = mongoDbService;
         }
 
-        public bool LogIn(string email, string password)
+        public string LogIn(string email, string password)
         {
-            return _mongoDbService.LogIn(email, password);
+            try
+            {
+                bool result = _mongoDbService.LogIn(email, password);
+                if (result) return UpdateStatus.Success;
+                return UpdateStatus.NotFound;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return UpdateStatus.Failed;
+            }
         }
 
-        public bool Register(Customer customer)
+        public string Register(RegisterDTO registerDto)
         {
             Customer newCustomer = new Customer()
             {
-                Name = customer.Name,
-                Email = customer.Email,
-                Password = customer.Password
+                Name = registerDto.name,
+                Email = registerDto.email,
+                PasswordHash = "",
+                PasswordSalt = "",
+                RefreshTokenHash = "",
+                RefreshTokenSalt = ""
             };
-            return _mongoDbService.Register(newCustomer);
+            try
+            {
+                var result = _mongoDbService.Register(newCustomer);
+                if(result)return UpdateStatus.Success;
+                return UpdateStatus.BadRequest;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+                return UpdateStatus.Failed;
+            }
         }
 
-        public void SubmitOrder(Order order)
+        public bool SubmitOrder(Order order)
         {
             Order newOrder = new Order()
             {
@@ -40,7 +65,8 @@ namespace EcommerceWebApi.Services
                 Price = order.Price,
                 OrderTime = order.OrderTime,
             };
-            _mongoDbService.AddObject(nameof(Order), newOrder);
+            return _mongoDbService.AddObject(nameof(Order), newOrder);
+            
         }
     }
 }

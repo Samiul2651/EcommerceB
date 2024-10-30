@@ -6,11 +6,10 @@ namespace EcommerceWebApi.Interfaces
 {
     public interface ICustomerService
     {
-        public bool LogIn(string email, string password);
+        public string LogIn(string email, string password);
 
+        public string Register(Customer customer);
 
-        public bool Register(Customer customer);
-
-        public void SubmitOrder(Order order);
+        public bool SubmitOrder(Order order);
     }
 }

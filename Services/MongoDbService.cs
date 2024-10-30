@@ -17,10 +17,10 @@ namespace EcommerceWebApi.Services
             _database = mongoClient.GetDatabase(mongoDbSettings.Value.DatabaseName);
         }
 
-        public IMongoCollection<T> GetCollection<T>(string collectionName)
-        {
-            return _database.GetCollection<T>(collectionName);
-        }
+        //public IMongoCollection<T> GetCollection<T>(string collectionName)
+        //{
+        //    return _database.GetCollection<T>(collectionName);
+        //}
 
         
         public bool IsAlive()
@@ -73,8 +73,6 @@ namespace EcommerceWebApi.Services
                 Console.WriteLine(e);
                 return false;
             }
-            return false;
-
         }
 
         public bool DeleteObject<T>(string collectionName, string id) where T : IModel
@@ -160,6 +158,33 @@ namespace EcommerceWebApi.Services
             var products = _productCollection.Find(product => product.Category == categoryId).ToList();
             return products;
         }
+
+        public string GetRefreshToken(string userId)
+        {
+            IMongoCollection<RefreshToken> _tokenCollection =
+                _database.GetCollection<RefreshToken>(nameof(RefreshToken));
+            var token = _tokenCollection.Find(token => token.UserId == userId).FirstOrDefault();
+            if (token != null && token.UserId == userId)
+            {
+                return token.Token;
+            }
+
+            return null;
+        }
+
+        public void UpdateRefreshToken(RefreshToken refreshToken)
+        {
+            IMongoCollection<RefreshToken> _tokenCollection =
+                _database.GetCollection<RefreshToken>(nameof(RefreshToken));
+            var token = _tokenCollection.Find(token => token.UserId == refreshToken.UserId).FirstOrDefault();
+            if (token != null && token.UserId == refreshToken.Token)
+            {
+                _tokenCollection.ReplaceOne(token => token.UserId == refreshToken.UserId, refreshToken);
+            }
+            else
+            {
+                _tokenCollection.InsertOne(refreshToken);
+            }
 
 
 

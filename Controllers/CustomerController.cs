@@ -1,70 +1,94 @@
-﻿using EcommerceWebApi.DTO;
+﻿using EcommerceWebApi.Constants;
+using EcommerceWebApi.DTO;
 using EcommerceWebApi.Interfaces;
 using EcommerceWebApi.Models;
 using EcommerceWebApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EcommerceWebApi.Controllers
 {
-    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CustomerController : Controller
     {
-        private ICustomerService _customerService;
-        private ITokenService _tokenService;
+        private readonly ICustomerService _customerService;
+        private readonly ITokenService _tokenService;
 
         public CustomerController(ICustomerService customerService, ITokenService tokenService)
         {
             _customerService = customerService;
-            _tokenService=tokenService;
+            _tokenService = tokenService;
         }
 
-        //[AllowAnonymous]
         [HttpPost("login")]
-        //public IActionResult LogIn(Customer customer)
         public IActionResult LogIn(Customer customer)
         {
-            //Console.WriteLine("Recieved");
-            bool result = _customerService.LogIn(customer.Email, customer.Password);
-            //Console.WriteLine(result);
-            if (result)
+            var result = _customerService.LogIn(customer.Email, customer.Password);
+            switch (result)
             {
-                CustomerDTO customerDto = new CustomerDTO
-                {
-                    name = customer.Name,
-                    token = _tokenService.GetToken(customer)
-                };
-                return Ok(new
-                {
-                    message = "Ok",
-                    customer = customerDto
-                });
+                case UpdateStatus.Success:
+                    CustomerDTO customerDto = new CustomerDTO
+                    {
+                        email = customer.Email,
+                        token = _tokenService.GetToken(customer)
+                    };
+                    return Ok(new
+                    {
+                        message = "Ok",
+                        customer = customerDto
+                    });
+                case UpdateStatus.NotFound:
+                    return NotFound();
+                default:
+                    return StatusCode(500, "Internal Server Error.");
             }
-
-            return NotFound();
+            
         }
 
         
         [HttpPost]
         public IActionResult Register(Customer customer)
         {
-            //Console.WriteLine(customer);
-            bool result = _customerService.Register(customer);
-            if (result)
+            var result = _customerService.Register(customer);
+            switch (result)
             {
-                return Ok(new { message = "Ok" });
+                case UpdateStatus.Success:
+                    return Ok(new { message = "Ok" });
+                case UpdateStatus.BadRequest:
+                    return BadRequest();
+                default:
+                    return StatusCode(500, "Internal Server Error.");
             }
-            else return BadRequest();
         }
 
+
+        [Authorize]
         [HttpPost("order")]
-        public void SubmitOrder(Order order)
+        public IActionResult SubmitOrder(Order order)
         { 
-            Console.WriteLine(order);
-            Console.WriteLine(order.Price);
-            _customerService.SubmitOrder(order);
+            var result = _customerService.SubmitOrder(order);
+            if (result)
+            {
+                return Ok();
+            }
+            return StatusCode(500, "Internal Server Error.");
+        }
+
+        [HttpGet("token")]
+        public IActionResult GetToken(TokenDTO tokenDto)
+        {
+            var result = _tokenService.CheckRefreshToken(refreshToken);
+            if (result)
+            {
+                var token = _tokenService.GetRefreshToken(customer);
+                return Ok(token);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

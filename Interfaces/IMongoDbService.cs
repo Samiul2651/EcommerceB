@@ -6,7 +6,7 @@ namespace EcommerceWebApi.Interfaces
 {
     public interface IMongoDbService
     {
-        public IMongoCollection<T> GetCollection<T>(string collectionName);
+        //public IMongoCollection<T> GetCollection<T>(string collectionName);
         public bool IsAlive();
 
         public T GetObjectById<T>(string id, string collectionName) where T : IModel;
@@ -21,5 +21,7 @@ namespace EcommerceWebApi.Interfaces
         public bool AddCategoryToProduct(string categoryId, string productId);
         public List<Category> GetCategoriesByParent(string categoryId);
         public List<Product> GetProductsByCategory(string categoryId);
+        public string GetRefreshToken(string userId);
+        public void UpdateRefreshToken(RefreshToken refreshToken);
     }
 }
