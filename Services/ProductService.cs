@@ -208,7 +208,16 @@ namespace EcommerceWebApi.Services
             return filteredCatgories;
         }
 
-
+        public List<Product> GetProductsByIds(List<string> ids)
+        {
+            var products = new List<Product>();
+            foreach (var produtcId in ids)
+            {
+                Product product = GetProductById(produtcId);
+                products.Add(product);
+            }
+            return products;
+        }
 
 
 

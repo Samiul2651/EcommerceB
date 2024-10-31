@@ -26,5 +26,6 @@ namespace EcommerceWebApi.Interfaces{
         public List<Product> GetAllProductsByCategory(string categoryId, int page);
         public List<Category> GetRootCategories();
         public List<Category> GetCategoriesByParent(string categoryId);
+        public List<Product> GetProductsByIds(List<string> ids);
     }
 }

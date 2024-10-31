@@ -32,7 +32,7 @@ namespace EcommerceWebApi.Controllers
                     CustomerDTO customerDto = new CustomerDTO
                     {
                         email = customer.Email,
-                        token = _tokenService.GetToken(customer)
+                        token = _tokenService.GetToken(customer.Email)
                     };
                     return Ok(new
                     {
@@ -79,10 +79,10 @@ namespace EcommerceWebApi.Controllers
         [HttpGet("token")]
         public IActionResult GetToken(TokenDTO tokenDto)
         {
-            var result = _tokenService.CheckRefreshToken(refreshToken);
+            var result = _tokenService.CheckRefreshToken(tokenDto);
             if (result)
             {
-                var token = _tokenService.GetRefreshToken(customer);
+                var token = _tokenService.GetToken(tokenDto.email);
                 return Ok(token);
             }
             else

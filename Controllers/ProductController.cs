@@ -76,7 +76,7 @@ namespace EcommerceWebApi.Controllers{
 
         }
 
-        [Authorize]
+        
         [HttpGet("getProducts/{page}")]
         public IActionResult GetProductsByPage(int page)
         {

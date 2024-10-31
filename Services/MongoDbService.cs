@@ -22,7 +22,7 @@ namespace EcommerceWebApi.Services
         //    return _database.GetCollection<T>(collectionName);
         //}
 
-        
+
         public bool IsAlive()
         {
             //_database.GetCollection<Product>(nameof(Product));
@@ -88,7 +88,7 @@ namespace EcommerceWebApi.Services
                 Console.WriteLine(e);
                 return false;
             }
-             
+
         }
 
         public List<T> GetList<T>(string collectionName) where T : IModel
@@ -108,22 +108,24 @@ namespace EcommerceWebApi.Services
             {
                 return false;
             }
-            
+
             if (user.Password != password)
             {
                 return false;
             }
+
             return true;
         }
 
         public bool Register(Customer customer)
         {
             IMongoCollection<Customer> _collection = _database.GetCollection<Customer>(nameof(Customer));
-            Customer user = _collection.Find(user =>user.Email == customer.Email).FirstOrDefault();
+            Customer user = _collection.Find(user => user.Email == customer.Email).FirstOrDefault();
             if (user != null && user.Email == customer.Email)
             {
                 return false;
             }
+
             _collection.InsertOne(customer);
             return true;
         }
@@ -185,12 +187,6 @@ namespace EcommerceWebApi.Services
             {
                 _tokenCollection.InsertOne(refreshToken);
             }
-
-
-
-
-
-
-
+        }
     }
 }

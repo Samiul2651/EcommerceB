@@ -1,5 +1,4 @@
 ﻿using EcommerceWebApi.Constants;
-using EcommerceWebApi.DTO;
 using EcommerceWebApi.Interfaces;
 using EcommerceWebApi.Models;
 using Microsoft.Extensions.Options;
@@ -30,16 +29,13 @@ namespace EcommerceWebApi.Services
             }
         }
 
-        public string Register(RegisterDTO registerDto)
+        public string Register(Customer customer)
         {
             Customer newCustomer = new Customer()
             {
-                Name = registerDto.name,
-                Email = registerDto.email,
-                PasswordHash = "",
-                PasswordSalt = "",
-                RefreshTokenHash = "",
-                RefreshTokenSalt = ""
+                Name = customer.Name,
+                Email = customer.Email,
+                Password = customer.Password
             };
             try
             {
