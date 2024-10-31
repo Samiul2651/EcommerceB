@@ -176,15 +176,18 @@ namespace EcommerceWebApi.Services
 
         public void UpdateRefreshToken(RefreshToken refreshToken)
         {
+            Console.WriteLine(refreshToken.UserId);
             IMongoCollection<RefreshToken> _tokenCollection =
                 _database.GetCollection<RefreshToken>(nameof(RefreshToken));
             var token = _tokenCollection.Find(token => token.UserId == refreshToken.UserId).FirstOrDefault();
-            if (token != null && token.UserId == refreshToken.Token)
+            //Console.WriteLine(refreshToken.UserId);
+            if (token != null && token.UserId == refreshToken.UserId)
             {
                 _tokenCollection.ReplaceOne(token => token.UserId == refreshToken.UserId, refreshToken);
             }
             else
             {
+                //Console.WriteLine(">>>");
                 _tokenCollection.InsertOne(refreshToken);
             }
         }

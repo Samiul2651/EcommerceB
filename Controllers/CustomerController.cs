@@ -32,7 +32,9 @@ namespace EcommerceWebApi.Controllers
                     CustomerDTO customerDto = new CustomerDTO
                     {
                         email = customer.Email,
-                        token = _tokenService.GetToken(customer.Email)
+                        token = _tokenService.GetToken(customer.Email),
+                        refreshToken = _tokenService.GetRefreshToken(customer.Email)
+                        
                     };
                     return Ok(new
                     {
@@ -76,19 +78,22 @@ namespace EcommerceWebApi.Controllers
             return StatusCode(500, "Internal Server Error.");
         }
 
-        [HttpGet("token")]
+        [HttpPost("token")]
         public IActionResult GetToken(TokenDTO tokenDto)
         {
             var result = _tokenService.CheckRefreshToken(tokenDto);
             if (result)
             {
                 var token = _tokenService.GetToken(tokenDto.email);
-                return Ok(token);
+                return Ok( new
+                {
+                    token = token
+                });
             }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
+            
         }
+
+        
     }
 }

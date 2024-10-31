@@ -227,5 +227,24 @@ namespace EcommerceWebApi.Controllers{
             
             
         }
+
+
+        [HttpPost("getProductsByIds")]
+        public IActionResult GetProductsByIds(List<string> ids)
+        {
+            try
+            {
+                var products = _productService.GetProductsByIds(ids);
+                return Ok(
+                    new
+                    {
+                        products = products
+                    });
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+        }
     }
 }

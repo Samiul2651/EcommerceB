@@ -74,7 +74,7 @@ namespace EcommerceWebApi.Services
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddSeconds(30),
+                Expires = DateTime.UtcNow.AddSeconds(5),
                 SigningCredentials = creds
             };
 
