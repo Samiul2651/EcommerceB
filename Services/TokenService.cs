@@ -51,6 +51,8 @@ namespace EcommerceWebApi.Services
         public bool CheckRefreshToken(TokenDTO tokenDto)
         {
             var token = _mongoDbService.GetRefreshToken(tokenDto.email);
+            Console.WriteLine(token);
+            Console.WriteLine(tokenDto.token);
             if (token == tokenDto.token) return true;
             return false;
         }

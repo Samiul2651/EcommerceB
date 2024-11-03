@@ -81,7 +81,10 @@ namespace EcommerceWebApi.Controllers
         [HttpPost("token")]
         public IActionResult GetToken(TokenDTO tokenDto)
         {
+            //Console.WriteLine(tokenDto.email);
+            //Console.WriteLine(tokenDto.token);
             var result = _tokenService.CheckRefreshToken(tokenDto);
+            //Console.WriteLine(result);
             if (result)
             {
                 var token = _tokenService.GetToken(tokenDto.email);

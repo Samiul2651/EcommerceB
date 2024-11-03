@@ -2,7 +2,7 @@
 {
     public class TokenDTO
     {
-        public required string token;
-        public required string email;
+        public required string token { get; set; }
+        public required string email { get; set; }
     }
 }
