@@ -1,11 +1,10 @@
-﻿using EcommerceWebApi.Constants;
-using EcommerceWebApi.DTO;
-using EcommerceWebApi.Interfaces;
-using EcommerceWebApi.Models;
-using EcommerceWebApi.Services;
+﻿using Business.Interfaces;
+using Contracts.Constants;
+using Contracts.DTO;
+using Contracts.Interfaces;
+using Contracts.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EcommerceWebApi.Controllers
 {
@@ -13,19 +12,25 @@ namespace EcommerceWebApi.Controllers
     [Route("api/[controller]")]
     public class CustomerController : Controller
     {
-        private readonly ICustomerService _customerService;
+        private readonly IOrderService _orderService;
         private readonly ITokenService _tokenService;
+        private readonly IAuthService _authService;
 
-        public CustomerController(ICustomerService customerService, ITokenService tokenService)
+        public CustomerController(
+            IOrderService orderService,
+            ITokenService tokenService,
+            IAuthService authService
+            )
         {
-            _customerService = customerService;
+            _orderService = orderService;
             _tokenService = tokenService;
+            _authService = authService;
         }
 
         [HttpPost("login")]
         public IActionResult LogIn(Customer customer)
         {
-            var result = _customerService.LogIn(customer.Email, customer.Password);
+            var result = _authService.LogIn(customer.Email, customer.Password);
             switch (result)
             {
                 case UpdateStatus.Success:
@@ -34,7 +39,7 @@ namespace EcommerceWebApi.Controllers
                         email = customer.Email,
                         token = _tokenService.GetToken(customer.Email),
                         refreshToken = _tokenService.GetRefreshToken(customer.Email)
-                        
+
                     };
                     return Ok(new
                     {
@@ -46,14 +51,13 @@ namespace EcommerceWebApi.Controllers
                 default:
                     return StatusCode(500, "Internal Server Error.");
             }
-            
         }
 
-        
+
         [HttpPost]
         public IActionResult Register(Customer customer)
         {
-            var result = _customerService.Register(customer);
+            var result = _authService.Register(customer);
             switch (result)
             {
                 case UpdateStatus.Success:
@@ -70,7 +74,7 @@ namespace EcommerceWebApi.Controllers
         [HttpPost("order")]
         public IActionResult SubmitOrder(Order order)
         { 
-            var result = _customerService.SubmitOrder(order);
+            var result = _orderService.SubmitOrder(order);
             if (result)
             {
                 return Ok();
@@ -81,16 +85,13 @@ namespace EcommerceWebApi.Controllers
         [HttpPost("token")]
         public IActionResult GetToken(TokenDTO tokenDto)
         {
-            //Console.WriteLine(tokenDto.email);
-            //Console.WriteLine(tokenDto.token);
             var result = _tokenService.CheckRefreshToken(tokenDto);
-            //Console.WriteLine(result);
             if (result)
             {
                 var token = _tokenService.GetToken(tokenDto.email);
                 return Ok( new
                 {
-                    token = token
+                    token
                 });
             }
             return BadRequest();

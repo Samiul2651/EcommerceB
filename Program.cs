@@ -1,11 +1,12 @@
 using System.Text;
-using EcommerceWebApi.Interfaces;
-using EcommerceWebApi.Models;
-using EcommerceWebApi.Services;
+using Business.Interfaces;
+using Business.Services;
+using Contracts.Interfaces;
+using Contracts.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using MongoDbService = EcommerceWebApi.Services.MongoDbService;
+using MongoDbService = Business.Services.MongoDbService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +14,10 @@ builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings"));
 builder.Services.AddSingleton<IMongoDbService, MongoDbService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
-builder.Services.AddSingleton<ICustomerService, CustomerService>();
+builder.Services.AddSingleton<IOrderService, OrderService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddSingleton<IAuthService, AuthService>();
+builder.Services.AddSingleton<ICategoryService, CategoryService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {

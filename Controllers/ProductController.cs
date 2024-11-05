@@ -1,8 +1,6 @@
-using System.Diagnostics.CodeAnalysis;
-using EcommerceWebApi.Constants;
-using EcommerceWebApi.Interfaces;
-using EcommerceWebApi.Models;
-using EcommerceWebApi.Services;
+using Contracts.Constants;
+using Contracts.Interfaces;
+using Contracts.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -153,22 +151,6 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
-        [HttpGet("categories")]
-        public IActionResult GetAllCategories()
-        {
-            try
-            {
-                var categories = _productService.GetAllCategories();
-                return Ok( new {
-                    categories = categories
-                });
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return StatusCode(500, new { Message = "Internal Server Error." });
-            }
-        }
 
         [HttpGet("productsByCategory/{categoryId}/{page}")]
         public IActionResult GetProductsByCategory(string categoryId, int page)
@@ -178,7 +160,7 @@ namespace EcommerceWebApi.Controllers{
                 var products = _productService.GetAllProductsByCategory(categoryId, page);
                 return Ok(new
                 {
-                    products = products
+                    products
                 });
             }
             catch(Exception ex)
@@ -188,45 +170,7 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
-        [HttpGet("rootCategories")]
-        public IActionResult GetRootCategories()
-        {
-            try
-            {
-                var categories = _productService.GetRootCategories();
-                return Ok(new
-                {
-                    categories = categories
-                });
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return StatusCode(500, new { Message = "Internal Server Error." });
-            }
-            
-        }
-
-        [HttpGet("getCategoryByParent/{categoryId}")]
-        public IActionResult GetCategoryByParent(string categoryId)
-        {
-            try
-            {
-                var categories = _productService.GetCategoriesByParent(categoryId);
-                return Ok(new
-                {
-                    categories = categories
-                });
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return StatusCode(500, new { Message = "Internal Server Error." });
-            }
-            
-            
-        }
+        
 
 
         [HttpPost("getProductsByIds")]
@@ -238,7 +182,7 @@ namespace EcommerceWebApi.Controllers{
                 return Ok(
                     new
                     {
-                        products = products
+                        products
                     });
             }
             catch (Exception e)
