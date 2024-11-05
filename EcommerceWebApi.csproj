@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Business\**" />
+    <Compile Remove="Contracts\**" />
+    <Content Remove="Business\**" />
+    <Content Remove="Contracts\**" />
+    <EmbeddedResource Remove="Business\**" />
+    <EmbeddedResource Remove="Contracts\**" />
+    <None Remove="Business\**" />
+    <None Remove="Contracts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />

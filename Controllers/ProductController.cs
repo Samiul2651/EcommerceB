@@ -53,7 +53,24 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
-        
+        [Authorize]
+        [HttpDelete("{id}")]
+        public IActionResult DeleteProduct(string id)
+        {
+
+            var productDeleteResult = _productService.DeleteProduct(id);
+            switch (productDeleteResult)
+            {
+                case UpdateStatus.NotFound:
+                    return NotFound(new { Message = "Product Not Found." });
+                case UpdateStatus.Success:
+                    return Ok(new { Message = "Product Deleted Successfully." });
+                default:
+                    return StatusCode(500, "Internal Server Error.");
+            }
+        }
+
+
         [HttpGet("{id}")]
         public IActionResult GetProduct(string id)
         {
@@ -81,9 +98,10 @@ namespace EcommerceWebApi.Controllers{
             try
             {
                 var products = _productService.GetProductsByPage(page);
+                var maxPage = 12;
                 if (products.Any())
                 {
-                    return Ok(new { Message = "Products Found Successfully", products });
+                    return Ok(new { Message = "Products Found Successfully", products, maxPage });
                 }
 
                 return NoContent();
@@ -100,9 +118,11 @@ namespace EcommerceWebApi.Controllers{
             try
             {
                 var products = _productService.GetProductsBySearchAndPage(input, page);
+                var maxPage = 12;
                 if (products.Any())
                 {
-                    return Ok(new { Message = "Products Found Successfully", products });
+                    return Ok(new { Message = "Products Found Successfully", products, maxPage });
+
                 }
 
                 return NoContent();
@@ -120,9 +140,10 @@ namespace EcommerceWebApi.Controllers{
             try
             {
                 var products = _productService.GetProductsBySearchAndPageWithId(input, page);
+                var maxPage = 12;
                 if (products.Any())
                 {
-                    return Ok(new { Message = "Products Found Successfully", products });
+                    return Ok(new { Message = "Products Found Successfully", products, maxPage });
                 }
 
                 return NoContent();
@@ -134,22 +155,7 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
-        [Authorize]
-        [HttpDelete("{id}")]
-        public IActionResult DeleteProduct(string id)
-        {
-            
-            var productDeleteResult = _productService.DeleteProduct(id);
-            switch (productDeleteResult)
-            {
-                case UpdateStatus.NotFound:
-                    return NotFound(new { Message = "Product Not Found." });
-                case UpdateStatus.Success:
-                    return Ok(new { Message = "Product Deleted Successfully." });
-                default:
-                    return StatusCode(500, "Internal Server Error.");
-            }
-        }
+        
 
 
         [HttpGet("productsByCategory/{categoryId}/{page}")]
@@ -158,9 +164,11 @@ namespace EcommerceWebApi.Controllers{
             try
             {
                 var products = _productService.GetAllProductsByCategory(categoryId, page);
+                var maxPage = 12;
                 return Ok(new
                 {
-                    products
+                    products,
+                    maxPage
                 });
             }
             catch(Exception ex)
