@@ -1,5 +1,6 @@
 ﻿using Business.Services;
 using Contracts.Interfaces;
+using Contracts.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EcommerceWebApi.Controllers
@@ -69,8 +70,24 @@ namespace EcommerceWebApi.Controllers
                 Console.WriteLine(e);
                 return StatusCode(500, new { Message = "Internal Server Error." });
             }
+        }
 
-
+        [HttpGet("searchCategory/{input}")]
+        public IActionResult GetCategoryBySearch(string input)
+        {
+            try
+            {
+                var categories = _categoryService.GetCategoriesBySearch(input);
+                return Ok(new
+                {
+                    categories
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return StatusCode(500, new { Message = "Internal Server Error." });
+            }
         }
     }
 }

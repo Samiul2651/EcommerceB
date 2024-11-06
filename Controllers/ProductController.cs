@@ -97,8 +97,9 @@ namespace EcommerceWebApi.Controllers{
         {
             try
             {
-                var products = _productService.GetProductsByPage(page);
-                var maxPage = 12;
+                var productsDto = _productService.GetProductsByPage(page);
+                var products = productsDto.products;
+                var maxPage = productsDto.maxPage;
                 if (products.Any())
                 {
                     return Ok(new { Message = "Products Found Successfully", products, maxPage });
@@ -117,8 +118,9 @@ namespace EcommerceWebApi.Controllers{
         {
             try
             {
-                var products = _productService.GetProductsBySearchAndPage(input, page);
-                var maxPage = 12;
+                var productsDto = _productService.GetProductsBySearchAndPage(input, page);
+                var products = productsDto.products;
+                var maxPage = productsDto.maxPage;
                 if (products.Any())
                 {
                     return Ok(new { Message = "Products Found Successfully", products, maxPage });
@@ -139,8 +141,10 @@ namespace EcommerceWebApi.Controllers{
         {
             try
             {
-                var products = _productService.GetProductsBySearchAndPageWithId(input, page);
-                var maxPage = 12;
+
+                var productsDto = _productService.GetProductsBySearchAndPageWithId(input, page);
+                var products = productsDto.products;
+                var maxPage = productsDto.maxPage;
                 if (products.Any())
                 {
                     return Ok(new { Message = "Products Found Successfully", products, maxPage });
@@ -163,8 +167,9 @@ namespace EcommerceWebApi.Controllers{
         {
             try
             {
-                var products = _productService.GetAllProductsByCategory(categoryId, page);
-                var maxPage = 12;
+                var productsDto = _productService.GetAllProductsByCategory(categoryId, page);
+                var products = productsDto.products;
+                var maxPage = productsDto.maxPage;
                 return Ok(new
                 {
                     products,
