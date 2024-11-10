@@ -89,5 +89,24 @@ namespace EcommerceWebApi.Controllers
                 return StatusCode(500, new { Message = "Internal Server Error." });
             }
         }
+
+        [HttpGet("getCategory/{id}")]
+        public IActionResult GetCategory(string id)
+        {
+            try
+            {
+                var category = _categoryService.GetCategoryById(id);
+                if (category.Id == id)
+                {
+                    return Ok(category);
+                }
+
+                return BadRequest();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "Internal Server Error." });
+            }
+        }
     }
 }

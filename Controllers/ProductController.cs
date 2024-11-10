@@ -203,5 +203,12 @@ namespace EcommerceWebApi.Controllers{
                 return BadRequest();
             }
         }
+
+        [HttpPost("upvoteProduct")]
+        public IActionResult UpvoteProduct(string productId, string userId)
+        {
+
+            return Ok();
+        }
     }
 }
