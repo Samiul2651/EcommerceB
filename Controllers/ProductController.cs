@@ -204,10 +204,17 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
-        [HttpPost("upvoteProduct")]
+        [HttpGet("upvoteProduct/{productId}/{userId}")]
         public IActionResult UpvoteProduct(string productId, string userId)
         {
+            _productService.UpvoteProduct(productId, userId);
+            return Ok();
+        }
 
+        [HttpGet("downvoteProduct/{productId}/{userId}")]
+        public IActionResult DownvoteProduct(string productId, string userId)
+        {
+            _productService.DownvoteProduct(productId, userId);
             return Ok();
         }
     }
