@@ -18,14 +18,14 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpPost("addCategory")]
-        public IActionResult AddCategory(Category category)
+        public async Task<IActionResult> AddCategory(Category category)
         {
             Category newCategory = new Category
             {
                 Name = category.Name,
                 ParentCategoryId = category.ParentCategoryId
             };
-            string result = _categoryService.AddCategory(newCategory);
+            string result = await _categoryService.AddCategory(newCategory);
             switch (result)
             {
                 case UpdateStatus.BadRequest:
@@ -38,11 +38,11 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpDelete("deleteCategory")]
-        public IActionResult DeleteCategory(Category category)
+        public async Task<IActionResult> DeleteCategory(Category category)
         {
             try
             {
-                var result = _categoryService.DeleteCategory(category);
+                var result = await _categoryService.DeleteCategory(category);
                 switch (result)
                 {
                     case UpdateStatus.Success:
@@ -58,11 +58,11 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpPut("updateCategory")]
-        public IActionResult UpdateCategory(Category category)
+        public async Task<IActionResult> UpdateCategory(Category category)
         {
             try
             {
-                var result = _categoryService.UpdateCategory(category);
+                var result = await _categoryService.UpdateCategory(category);
                 switch (result)
                 {
                     case UpdateStatus.Success:

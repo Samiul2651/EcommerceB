@@ -20,10 +20,10 @@ namespace EcommerceWebApi.Controllers{
 
         [Authorize]
         [HttpPost]
-        public IActionResult AddProduct(Product newProduct)
+        public async Task<IActionResult> AddProduct(Product newProduct)
         {
             //Console.WriteLine(newProduct.Price);
-            bool productAddResult = _productService.AddProduct(newProduct);
+            bool productAddResult = await _productService.AddProduct(newProduct);
             var uri = Url.Action("GetProduct", new { id = newProduct.Id });
             if (productAddResult == true)
             {
@@ -39,9 +39,9 @@ namespace EcommerceWebApi.Controllers{
 
         [Authorize]
         [HttpPut]
-        public IActionResult UpdateProduct(Product product)
+        public async Task<IActionResult> UpdateProduct(Product product)
         {
-            var productUpdateResult = _productService.UpdateProduct(product);
+            var productUpdateResult = await _productService.UpdateProduct(product);
             switch (productUpdateResult)
             {
                 case UpdateStatus.NotFound:
@@ -55,10 +55,10 @@ namespace EcommerceWebApi.Controllers{
 
         [Authorize]
         [HttpDelete("{id}")]
-        public IActionResult DeleteProduct(string id)
+        public async Task<IActionResult> DeleteProduct(string id)
         {
 
-            var productDeleteResult = _productService.DeleteProduct(id);
+            var productDeleteResult = await _productService.DeleteProduct(id);
             switch (productDeleteResult)
             {
                 case UpdateStatus.NotFound:
@@ -72,11 +72,11 @@ namespace EcommerceWebApi.Controllers{
 
 
         [HttpGet("{id}")]
-        public IActionResult GetProduct(string id)
+        public async Task<IActionResult> GetProduct(string id)
         {
             try
             {
-                var product = _productService.GetProductById(id);
+                var product = await _productService.GetProductById(id);
                 if (product == null || product.Id != id)
                 {
                     return NotFound(new { Message = "No Product Found." });
@@ -93,11 +93,11 @@ namespace EcommerceWebApi.Controllers{
 
         
         [HttpGet("getProducts/{page}")]
-        public IActionResult GetProductsByPage(int page)
+        public async Task<IActionResult> GetProductsByPage(int page)
         {
             try
             {
-                var productsDto = _productService.GetProductsByPage(page);
+                var productsDto = await _productService.GetProductsByPage(page);
                 var products = productsDto.products;
                 var maxPage = productsDto.maxPage;
                 if (products.Any())
@@ -114,11 +114,11 @@ namespace EcommerceWebApi.Controllers{
         }
 
         [HttpGet("getProductsBySearch/{input}/{page}")]
-        public IActionResult GetProductsBySearch(string input, int page)
+        public async Task<IActionResult> GetProductsBySearch(string input, int page)
         {
             try
             {
-                var productsDto = _productService.GetProductsBySearchAndPage(input, page);
+                var productsDto = await _productService.GetProductsBySearchAndPage(input, page);
                 var products = productsDto.products;
                 var maxPage = productsDto.maxPage;
                 if (products.Any())
@@ -137,12 +137,12 @@ namespace EcommerceWebApi.Controllers{
         }
 
         [HttpGet("getProductsBySearchWithId/{input}/{page}")]
-        public IActionResult GetProductsBySearchWithId(string input, int page)
+        public async Task<IActionResult> GetProductsBySearchWithId(string input, int page)
         {
             try
             {
 
-                var productsDto = _productService.GetProductsBySearchAndPageWithId(input, page);
+                var productsDto = await _productService.GetProductsBySearchAndPageWithId(input, page);
                 var products = productsDto.products;
                 var maxPage = productsDto.maxPage;
                 if (products.Any())
@@ -163,11 +163,11 @@ namespace EcommerceWebApi.Controllers{
 
 
         [HttpGet("productsByCategory/{categoryId}/{page}")]
-        public IActionResult GetProductsByCategory(string categoryId, int page)
+        public async Task<IActionResult> GetProductsByCategory(string categoryId, int page)
         {
             try
             {
-                var productsDto = _productService.GetAllProductsByCategory(categoryId, page);
+                var productsDto = await _productService.GetAllProductsByCategory(categoryId, page);
                 var products = productsDto.products;
                 var maxPage = productsDto.maxPage;
                 return Ok(new

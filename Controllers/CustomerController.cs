@@ -28,9 +28,9 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult LogIn(Customer customer)
+        public async Task<IActionResult> LogIn(Customer customer)
         {
-            var result = _authService.LogIn(customer.Email, customer.Password);
+            var result = await _authService.LogIn(customer.Email, customer.Password);
             switch (result)
             {
                 case UpdateStatus.Success:
@@ -38,7 +38,7 @@ namespace EcommerceWebApi.Controllers
                     {
                         email = customer.Email,
                         token = _tokenService.GetToken(customer.Email),
-                        refreshToken = _tokenService.GetRefreshToken(customer.Email)
+                        refreshToken = await _tokenService.GetRefreshToken(customer.Email)
 
                     };
                     return Ok(new
@@ -55,9 +55,9 @@ namespace EcommerceWebApi.Controllers
 
 
         [HttpPost]
-        public IActionResult Register(Customer customer)
+        public async Task<IActionResult> Register(Customer customer)
         {
-            var result = _authService.Register(customer);
+            var result = await _authService.Register(customer);
             switch (result)
             {
                 case UpdateStatus.Success:
@@ -70,22 +70,23 @@ namespace EcommerceWebApi.Controllers
         }
 
 
-        [Authorize]
+        //[Authorize]
         [HttpPost("order")]
         public IActionResult SubmitOrder(Order order)
         { 
-            var result = _orderService.SubmitOrder(order);
-            if (result)
-            {
+            //var result = 
+            _orderService.SubmitOrder(order);
+            //if (result)
+            //{
                 return Ok();
-            }
-            return StatusCode(500, "Internal Server Error.");
+            //}
+            //return StatusCode(500, "Internal Server Error.");
         }
 
         [HttpPost("token")]
-        public IActionResult GetToken(TokenDTO tokenDto)
+        public async Task<IActionResult> GetToken(TokenDTO tokenDto)
         {
-            var result = _tokenService.CheckRefreshToken(tokenDto);
+            var result = await _tokenService.CheckRefreshToken(tokenDto);
             if (result)
             {
                 var token = _tokenService.GetToken(tokenDto.email);

@@ -15,9 +15,9 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpGet("getVote/{productId}/{userId}")]
-        public IActionResult getVote(string productId, string userId)
+        public async Task<IActionResult> getVote(string productId, string userId)
         {
-            var vote = _voteService.GetVote(productId, userId);
+            var vote = await _voteService.GetVote(productId, userId);
             return Ok(vote);
         }
     }

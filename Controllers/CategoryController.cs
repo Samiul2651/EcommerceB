@@ -17,11 +17,11 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpGet("categories")]
-        public IActionResult GetAllCategories()
+        public async Task<IActionResult> GetAllCategories()
         {
             try
             {
-                var categories = _categoryService.GetAllCategories();
+                var categories = await _categoryService.GetAllCategories();
                 return Ok(new
                 {
                     categories
@@ -35,11 +35,11 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpGet("rootCategories")]
-        public IActionResult GetRootCategories()
+        public async Task<IActionResult> GetRootCategories()
         {
             try
             {
-                var categories = _categoryService.GetRootCategories();
+                var categories = await _categoryService.GetRootCategories();
                 return Ok(new
                 {
                     categories
@@ -55,11 +55,11 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpGet("getCategoryByParent/{categoryId}")]
-        public IActionResult GetCategoryByParent(string categoryId)
+        public async Task<IActionResult> GetCategoryByParent(string categoryId)
         {
             try
             {
-                var categories = _categoryService.GetCategoriesByParent(categoryId);
+                var categories = await _categoryService.GetCategoriesByParent(categoryId);
                 return Ok(new
                 {
                     categories
@@ -73,11 +73,11 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpGet("searchCategory/{input}")]
-        public IActionResult GetCategoryBySearch(string input)
+        public async Task<IActionResult> GetCategoryBySearch(string input)
         {
             try
             {
-                var categories = _categoryService.GetCategoriesBySearch(input);
+                var categories = await _categoryService.GetCategoriesBySearch(input);
                 return Ok(new
                 {
                     categories
@@ -91,11 +91,11 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpGet("getCategory/{id}")]
-        public IActionResult GetCategory(string id)
+        public async Task<IActionResult> GetCategory(string id)
         {
             try
             {
-                var category = _categoryService.GetCategoryById(id);
+                var category = await _categoryService.GetCategoryById(id);
                 if (category.Id == id)
                 {
                     return Ok(category);
@@ -110,9 +110,9 @@ namespace EcommerceWebApi.Controllers
         }
 
         [HttpGet("getTopCategories")]
-        public IActionResult GetTopCategories()
+        public async Task<IActionResult> GetTopCategories()
         {
-            var categories = _categoryService.GetTrendingCategories();
+            var categories = await _categoryService.GetTrendingCategories();
             return Ok( new {
                 categories
             });

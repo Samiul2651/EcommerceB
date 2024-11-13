@@ -1,5 +1,6 @@
 using System.Text;
 using Business.Interfaces;
+using Business.Publishers;
 using Business.Services;
 using Contracts.Interfaces;
 using Contracts.Models;
@@ -12,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings"));
+builder.Services.Configure<RabbitMQSetting>(
+    builder.Configuration.GetSection("RabbitMQ"));
 builder.Services.AddSingleton<IMongoDbService, MongoDbService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddSingleton<IOrderService, OrderService>();
@@ -19,6 +22,9 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddSingleton<IAuthService, AuthService>();
 builder.Services.AddSingleton<ICategoryService, CategoryService>();
 builder.Services.AddSingleton<IVoteService, VoteService>();
+builder.Services.AddHostedService<EmailService>();
+
+builder.Services.AddScoped(typeof(IRabbitMQPublisher<>), typeof(RabbitMQPublisher<>));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
