@@ -4,8 +4,8 @@ namespace Contracts.Interfaces
 {
     public interface IAuthService
     {
-        public string LogIn(string email, string password);
+        public Task<string> LogIn(string email, string password);
 
-        public string Register(Customer customer);
+        public Task<string> Register(Customer customer);
     }
 }

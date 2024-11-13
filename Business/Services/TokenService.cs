@@ -50,15 +50,15 @@ namespace Business.Services
             return tokenHandler.WriteToken(token);
         }
 
-        public bool CheckRefreshToken(TokenDTO tokenDto)
+        public async Task<bool> CheckRefreshToken(TokenDTO tokenDto)
         {
             bool Filter(RefreshToken refreshToken) => refreshToken.Id == tokenDto.email;
-            var token = _mongoDbService.GetObjectByFilter(nameof(RefreshToken), (Func<RefreshToken, bool>)Filter);
+            var token = await _mongoDbService.GetObjectByFilter(nameof(RefreshToken), (Func<RefreshToken, bool>)Filter);
             if (token.Token == tokenDto.token) return true;
             return false;
         }
 
-        public string GetRefreshToken(string email)
+        public async Task<string> GetRefreshToken(string email)
         {
             var refreshTokenKey = _configuration["RefreshTokenKey"]
                                   ?? throw new Exception("cannot access RefreshTokenKey");
@@ -91,7 +91,7 @@ namespace Business.Services
                 Token = tokenHandler.WriteToken(token)
             };
             bool Filter(RefreshToken refreshToken) => refreshToken.Id == email;
-            var checkRefreshToken =
+            var checkRefreshToken = await 
                 _mongoDbService.GetObjectByFilter(nameof(RefreshToken), (Func<RefreshToken, bool>)Filter);
             if (checkRefreshToken != null && checkRefreshToken.Id == email)
             {

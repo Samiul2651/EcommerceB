@@ -22,18 +22,18 @@ namespace Business.Services
             return _database.GetCollection<T>(collectionName);
         }
 
-        public T GetObjectById<T>(string id, string collectionName) where T : IModel
+        public async Task<T> GetObjectById<T>(string id, string collectionName) where T : IModel
         {
             IMongoCollection<T> _collection = _database.GetCollection<T>(collectionName);
-            return _collection.Find(p => p.Id == id).FirstOrDefault();
+            return await _collection.Find(p => p.Id == id).FirstOrDefaultAsync();
         }
 
-        public bool AddObject<T>(string collectionName, T value) where T : IModel
+        public async Task<bool> AddObject<T>(string collectionName, T value) where T : IModel
         {
             try
             {
                 IMongoCollection<T> _collection = _database.GetCollection<T>(collectionName);
-                _collection.InsertOne(value);
+                await _collection.InsertOneAsync(value);
                 return true;
             }
             catch (Exception e)
@@ -43,12 +43,12 @@ namespace Business.Services
             }
         }
 
-        public bool UpdateObject<T>(string collectionName, T value) where T : IModel
+        public async Task<bool> UpdateObject<T>(string collectionName, T value) where T : IModel
         {
             try
             {
                 IMongoCollection<T> _collection = _database.GetCollection<T>(collectionName);
-                _collection.ReplaceOne(p => p.Id == value.Id, value);
+                await _collection.ReplaceOneAsync(p => p.Id == value.Id, value);
                 return true;
             }
             catch (Exception e)
@@ -58,12 +58,12 @@ namespace Business.Services
             }
         }
 
-        public bool DeleteObject<T>(string collectionName, string id) where T : IModel
+        public async Task<bool> DeleteObject<T>(string collectionName, string id) where T : IModel
         {
             try
             {
                 IMongoCollection<T> _collection = _database.GetCollection<T>(collectionName);
-                _collection.DeleteOne(p => p.Id == id);
+                await _collection.DeleteOneAsync(p => p.Id == id);
                 return true;
             }
             catch (Exception e)
@@ -74,23 +74,23 @@ namespace Business.Services
 
         }
 
-        public List<T> GetList<T>(string collectionName) where T : IModel
+        public async Task<List<T>> GetList<T>(string collectionName) where T : IModel
         {
             IMongoCollection<T> _collection = _database.GetCollection<T>(collectionName);
-            return _collection.Find(p => true).ToList();
+            return await _collection.Find(p => true).ToListAsync();
         }
 
-        public List<T> GetListByFilter<T>(string collectionName, Func<T, bool> filter) where T : IModel
+        public async Task<List<T>> GetListByFilter<T>(string collectionName, Func<T, bool> filter) where T : IModel
         {
             IMongoCollection<T> _collection = _database.GetCollection<T>(collectionName);
-            var list = _collection.Find(p => true).ToList();
+            var list = await _collection.Find(p => true).ToListAsync();
             return list.Where(filter).ToList();
         }
 
-        public T GetObjectByFilter<T>(string collectionName, Func<T, bool> filter) where T : IModel
+        public async Task<T> GetObjectByFilter<T>(string collectionName, Func<T, bool> filter) where T : IModel
         {
             IMongoCollection<T> _collection = _database.GetCollection<T>(collectionName);
-            var list = _collection.Find(p => true).ToList();
+            var list = await _collection.Find(p => true).ToListAsync();
             var obj = list.FirstOrDefault(filter);
             return obj;
         }

@@ -13,12 +13,12 @@ namespace Business.Services
             _mongoDbService = mongoDbService;
         }
 
-        public string LogIn(string email, string password)
+        public async Task<string> LogIn(string email, string password)
         {
             bool Filter(Customer customer) => customer.Email == email;
             try
             {
-                var customer = _mongoDbService.GetObjectByFilter(nameof(Customer), (Func<Customer, bool>)Filter);
+                var customer = await _mongoDbService.GetObjectByFilter(nameof(Customer), (Func<Customer, bool>)Filter);
                 if (customer.Email != email)
                 {
                     return UpdateStatus.NotFound;
@@ -31,12 +31,12 @@ namespace Business.Services
             }
         }
 
-        public string Register(Customer customer)
+        public async Task<string> Register(Customer customer)
         {
             bool Filter(Customer c) => c.Email == customer.Email;
             try
             {
-                var checkCustomer = _mongoDbService.GetObjectByFilter(nameof(Customer), (Func<Customer, bool>)Filter);
+                var checkCustomer = await _mongoDbService.GetObjectByFilter(nameof(Customer), (Func<Customer, bool>)Filter);
                 if (checkCustomer.Email == customer.Email)
                 {
                     return UpdateStatus.BadRequest;

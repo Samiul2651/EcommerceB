@@ -8,5 +8,6 @@ namespace Contracts.Models
         public string Id { get; set; } = ObjectId.GenerateNewId().ToString();
         public string Name { get; set; }
         public string ParentCategoryId { get; set; }
+        public int TrendingScore { get; set; }
     }
 }

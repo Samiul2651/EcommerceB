@@ -4,6 +4,6 @@ namespace Contracts.Interfaces
 {
     public interface IOrderService
     {
-        public bool SubmitOrder(Order order);
+        public void SubmitOrder(Order order);
     }
 }

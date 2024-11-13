@@ -1,6 +1,8 @@
 ﻿using Contracts.Interfaces;
 using Contracts.Models;
 using Microsoft.Extensions.Options;
+using RabbitMQ.Client;
+using System.Text;
 
 namespace Business.Services
 {
@@ -13,7 +15,7 @@ namespace Business.Services
             _mongoDbService = mongoDbService;
         }
 
-        public bool SubmitOrder(Order order)
+        public async void SubmitOrder(Order order)
         {
 
             Order newOrder = new Order()
@@ -25,8 +27,19 @@ namespace Business.Services
                 Price = order.Price,
                 OrderTime = order.OrderTime,
             };
-            return _mongoDbService.AddObject(nameof(Order), newOrder);
+            var factory = new ConnectionFactory { HostName = "localhost" };
+            using var connection = await factory.CreateConnectionAsync();
+            using var channel = await connection.CreateChannelAsync();
 
+            await channel.QueueDeclareAsync(queue: "order", durable: false, exclusive: false, autoDelete: false,
+                arguments: null);
+
+            string message = "Order Placed!" + order.CustomerId;
+            var body = Encoding.UTF8.GetBytes(message);
+
+            await channel.BasicPublishAsync(exchange: string.Empty, routingKey: "order", body: body);
+
+            Console.WriteLine(message);
         }
     }
 }

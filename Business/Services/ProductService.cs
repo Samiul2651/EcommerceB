@@ -1,4 +1,5 @@
 using Contracts.Constants;
+using Contracts.DTO;
 using Contracts.Interfaces;
 using Contracts.Models;
 using Microsoft.Extensions.Options;
@@ -8,14 +9,16 @@ namespace Business.Services
     public class ProductService : IProductService {
         
         private IMongoDbService _mongoDbService;
+        private readonly ICategoryService _categoryService;
 
-        public ProductService(IMongoDbService mongoDbService, IOptions<MongoDbSettings> mongoDbSettings)
+        public ProductService(IMongoDbService mongoDbService, ICategoryService categoryService)
         {
             _mongoDbService = mongoDbService;
+            _categoryService=categoryService;
         }
 
 
-        public bool AddProduct(Product product)
+        public async Task<bool> AddProduct(Product product)
         {
             Product newProduct = new Product
             {
@@ -27,22 +30,22 @@ namespace Business.Services
                 Category = product.Category
             };
 
-            bool result = _mongoDbService.AddObject(nameof(Product), newProduct);
+            bool result = await _mongoDbService.AddObject(nameof(Product), newProduct);
             if(result)return true;
             return false;
         }
 
-        public string DeleteProduct(string id)
+        public async Task<string> DeleteProduct(string id)
         {
             try
             {
-                var productToBeDeleted = _mongoDbService.GetObjectById<Product>(id, nameof(Product));
+                var productToBeDeleted = await _mongoDbService.GetObjectById<Product>(id, nameof(Product));
                 if (productToBeDeleted == null || productToBeDeleted.Id != id)
                 {
                     return UpdateStatus.NotFound;
                 }
                 
-                bool result = _mongoDbService.DeleteObject<Product>(nameof(Product), id);
+                bool result = await _mongoDbService.DeleteObject<Product>(nameof(Product), id);
 
                 if(result)return UpdateStatus.Success;
                 return UpdateStatus.Failed;
@@ -54,17 +57,17 @@ namespace Business.Services
             }
         }
 
-        public string UpdateProduct(Product product)
+        public async Task<string> UpdateProduct(Product product)
         {
             try
             {
-                var productToBeUpdated = _mongoDbService.GetObjectById<Product>(product.Id, nameof(Product));
+                var productToBeUpdated = await _mongoDbService.GetObjectById<Product>(product.Id, nameof(Product));
                 if (productToBeUpdated == null || productToBeUpdated.Id != product.Id)
                 {
                     return UpdateStatus.NotFound;
                 }
 
-                bool result = _mongoDbService.UpdateObject(nameof(Product), product);
+                bool result = await _mongoDbService.UpdateObject(nameof(Product), product);
                 if (result) return UpdateStatus.Success;
                 return UpdateStatus.Failed;
             }
@@ -76,14 +79,14 @@ namespace Business.Services
             
         }
 
-        public Product GetProductById(string id)
+        public async Task<Product> GetProductById(string id)
         {
-            return _mongoDbService.GetObjectById<Product>(id, nameof(Product));
+            return await _mongoDbService.GetObjectById<Product>(id, nameof(Product));
         }
 
-        public List<Product> GetProductsByPage(int page)
+        public async Task<ProductsDTO> GetProductsByPage(int page)
         {
-            var products = _mongoDbService.GetList<Product>(nameof(Product));
+            var products = await _mongoDbService.GetList<Product>(nameof(Product));
             var sortedProducts = products.OrderByDescending(p => p.TrendingScore).ToList();
             var productsByPage = new List<Product>();
             int startingIndex = Math.Min((page - 1) * 10, products.Count);
@@ -93,12 +96,15 @@ namespace Business.Services
             {
                 productsByPage.Add(sortedProducts[i]);
             }
-            return productsByPage;
+            var productsDto = new ProductsDTO();
+            productsDto.products = productsByPage;
+            productsDto.maxPage = GetPageCount(products.Count);
+            return productsDto;
         }
 
-        public List<Product> GetProductsBySearchAndPage(string input, int page)
+        public async Task<ProductsDTO> GetProductsBySearchAndPage(string input, int page)
         {
-            var products = _mongoDbService.GetList<Product>(nameof(Product));
+            var products = await _mongoDbService.GetList<Product>(nameof(Product));
             var filteredProducts = new List<Product>();
             foreach (var product in products)
             {
@@ -116,12 +122,16 @@ namespace Business.Services
             {
                 productsByPage.Add(sortedProducts[i]);
             }
-            return productsByPage;
+
+            var productDto = new ProductsDTO();
+            productDto.products = productsByPage;
+            productDto.maxPage = GetPageCount(filteredProducts.Count);
+            return productDto;
         }
 
-        public List<Product> GetProductsBySearchAndPageWithId(string input, int page)
+        public async Task<ProductsDTO> GetProductsBySearchAndPageWithId(string input, int page)
         {
-            var products = _mongoDbService.GetList<Product>(nameof(Product));
+            var products = await _mongoDbService.GetList<Product>(nameof(Product));
             var filteredProducts = new List<Product>();
             foreach (var product in products)
             {
@@ -140,33 +150,29 @@ namespace Business.Services
             {
                 productsByPage.Add(sortedProducts[i]);
             }
-            return productsByPage;
+            var productDto = new ProductsDTO();
+            productDto.products = productsByPage;
+            productDto.maxPage = GetPageCount(filteredProducts.Count);
+            return productDto;
         }
 
-        public List<Category> GetAllCategories()
-        {
-            var categories = new List<Category>();
-            categories = _mongoDbService.GetList<Category>(nameof(Category));
-            return categories;
-        }
-
-        public List<Product> GetAllProductsByCategory(string categoryId, int page)
+        public async Task<ProductsDTO> GetAllProductsByCategory(string categoryId, int page)
         {
             var products = new List<Product>();
             Queue<Category> queue = new Queue<Category>();
-            var category = _mongoDbService.GetObjectById<Category>(categoryId, nameof(Category)); Console.WriteLine(category.Name);
+            var category = await _mongoDbService.GetObjectById<Category>(categoryId, nameof(Category)); Console.WriteLine(category.Name);
             if(category != null)queue.Enqueue(category);
             while (queue.Count > 0)
             {
                 var id = queue.Peek().Id;
                 bool Filter(Category category) => category.ParentCategoryId == id;
-                var categories = _mongoDbService.GetListByFilter(nameof(Category), (Func<Category, bool>)Filter);
+                var categories = await _mongoDbService.GetListByFilter(nameof(Category), (Func<Category, bool>)Filter);
                 categories.ForEach(item =>
                 {
                     queue.Enqueue(item);
                 });
                 bool ProductFilter(Product product) => product.Category == id;
-                var productsByCategory = _mongoDbService.GetListByFilter(nameof(Product), (Func<Product, bool>)ProductFilter);
+                var productsByCategory = await _mongoDbService.GetListByFilter(nameof(Product), (Func<Product, bool>)ProductFilter);
                 products.AddRange(productsByCategory);
                 queue.Dequeue();
             }
@@ -178,29 +184,18 @@ namespace Business.Services
             {
                 productsByPage.Add(sortedProducts[i]);
             }
-            return productsByPage;
+            var productDto = new ProductsDTO();
+            productDto.products = productsByPage;
+            productDto.maxPage = GetPageCount(products.Count);
+            return productDto;
         }
 
-        public List<Category> GetRootCategories()
-        {
-            var categories = _mongoDbService.GetList<Category>(nameof(Category));
-            var rootCategories = categories.FindAll(category => category.ParentCategoryId == "");
-            return rootCategories;
-        }
-
-        public List<Category> GetCategoriesByParent(string categoryId)
-        {
-            var categories = _mongoDbService.GetList<Category>(nameof(Category));
-            var filteredCatgories = categories.FindAll(c => c.ParentCategoryId == categoryId);
-            return filteredCatgories;
-        }
-
-        public List<Product> GetProductsByIds(List<string> ids)
+        public async Task<List<Product>> GetProductsByIds(List<string> ids)
         {
             var products = new List<Product>();
             foreach (var produtcId in ids)
             {
-                Product product = GetProductById(produtcId);
+                Product product = await GetProductById(produtcId);
                 products.Add(product);
             }
             return products;
@@ -208,5 +203,94 @@ namespace Business.Services
 
 
 
+        public int GetPageCount(int count)
+        {
+            int maxPage = count / 10;
+            if (count % 10 != 0) maxPage += 1;
+            return maxPage;
+        }
+
+        public async Task UpvoteProduct(string productId, string userId)
+        {
+            bool Filter(Vote v) => v.UserId == userId && v.ProductId == productId;
+            Vote vote = await _mongoDbService.GetObjectByFilter(nameof(Vote), (Func<Vote, bool>)Filter);
+            Vote newVote;
+            if (vote == null)
+            {
+                AddTrendingScore(productId, 1);
+                newVote = new Vote
+                {
+                    ProductId = productId,
+                    UserId = userId,
+                    IsPositive = true
+                };
+                _mongoDbService.AddObject(nameof(Vote), newVote);
+            }
+            else if (vote.ProductId == productId && vote.UserId == userId)
+            {
+                if (!vote.IsPositive)
+                {
+                    AddTrendingScore(productId, 2);
+                    vote.IsPositive = true;
+                    _mongoDbService.UpdateObject(nameof(Vote), vote);
+                }
+            }
+            else
+            {
+                AddTrendingScore(productId, 1);
+                newVote = new Vote
+                {
+                    ProductId = productId,
+                    UserId = userId,
+                    IsPositive = true
+                };
+                await _mongoDbService.AddObject(nameof(Vote), newVote);
+            }
+        }
+
+        public async Task DownvoteProduct(string productId, string userId)
+        {
+            bool Filter(Vote v) => (v.UserId == userId) && (v.ProductId == productId);
+            Vote vote = await _mongoDbService.GetObjectByFilter(nameof(Vote), (Func<Vote, bool>)Filter);
+            Vote newVote;
+            if (vote == null)
+            {
+                AddTrendingScore(productId, -1);
+                newVote = new Vote
+                {
+                    ProductId = productId,
+                    UserId = userId,
+                    IsPositive = false
+                };
+                _mongoDbService.AddObject(nameof(Vote), newVote);
+                return;
+            }
+            if (vote.ProductId == productId && vote.UserId == userId)
+            {
+                if (vote.IsPositive)
+                {
+                    AddTrendingScore(productId, -2);
+                    vote.IsPositive = false;
+                    _mongoDbService.UpdateObject(nameof(Vote), vote);
+                }
+                return;
+            }
+            AddTrendingScore(productId, -1);
+            newVote = new Vote
+            {
+                ProductId = productId,
+                UserId = userId,
+                IsPositive = false
+            };
+            _mongoDbService.AddObject(nameof(Vote), newVote);
+        }
+
+        public async Task AddTrendingScore(string productId, int value)
+        {
+            var product = await _mongoDbService.GetObjectById<Product>(productId, nameof(Product));
+            product.TrendingScore += value;
+            _categoryService.AddTrendingScore(product.Category, value);
+            _mongoDbService.UpdateObject(nameof(Product), product);
+        }
     }
 }

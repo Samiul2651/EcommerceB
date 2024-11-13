@@ -1,25 +1,26 @@
+using Contracts.DTO;
 using Contracts.Models;
 
 namespace Contracts.Interfaces{
     public interface IProductService
     {
 
-        Product? GetProductById(string id);
+        Task<Product> GetProductById(string id);
 
-        List<Product> GetProductsByPage(int page);
+        Task<ProductsDTO> GetProductsByPage(int page);
 
-        bool AddProduct(Product product);
+        Task<bool> AddProduct(Product product);
 
-        string DeleteProduct(string id);
+        Task<string> DeleteProduct(string id);
 
-        string UpdateProduct(Product product);
+        Task<string> UpdateProduct(Product product);
 
-        List<Product> GetProductsBySearchAndPage(string input, int page);
-        List<Product> GetProductsBySearchAndPageWithId(string input, int page);
-        public List<Category> GetAllCategories();
-        public List<Product> GetAllProductsByCategory(string categoryId, int page);
-        public List<Category> GetRootCategories();
-        public List<Category> GetCategoriesByParent(string categoryId);
-        public List<Product> GetProductsByIds(List<string> ids);
+        Task<ProductsDTO> GetProductsBySearchAndPage(string input, int page);
+        Task<ProductsDTO> GetProductsBySearchAndPageWithId(string input, int page);
+        public Task<ProductsDTO> GetAllProductsByCategory(string categoryId, int page);
+        public Task<List<Product>> GetProductsByIds(List<string> ids);
+        public Task UpvoteProduct(string productId, string userId);
+        public Task DownvoteProduct(string productId, string userId);
+        public Task AddTrendingScore(string productId, int value);
     }
 }
