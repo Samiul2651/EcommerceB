@@ -9,15 +9,20 @@
   <ItemGroup>
     <Compile Remove="Business\**" />
     <Compile Remove="Contracts\**" />
+    <Compile Remove="Receive\**" />
     <Content Remove="Business\**" />
     <Content Remove="Contracts\**" />
+    <Content Remove="Receive\**" />
     <EmbeddedResource Remove="Business\**" />
     <EmbeddedResource Remove="Contracts\**" />
+    <EmbeddedResource Remove="Receive\**" />
     <None Remove="Business\**" />
     <None Remove="Contracts\**" />
+    <None Remove="Receive\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Fluid" Version="2.0.2" />
     <PackageReference Include="MassTransit" Version="8.3.1" />
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
@@ -26,6 +31,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.29.0" />
     <PackageReference Include="RabbitMQ.Client" Version="7.0.0" />
+    <PackageReference Include="SendGrid" Version="9.29.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.1.2" />
   </ItemGroup>

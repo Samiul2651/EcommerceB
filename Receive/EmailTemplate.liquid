@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome, {{ user.firstName }}!</title>
+</head>
+<body>
+  <h1>Hello, {{ user.firstName }} {{ user.lastName }}</h1>
+  <p>Thanks for signing up for our service!</p>
+  
+  {% if user.isPremium %}
+    <p>As a premium member, you have access to exclusive features.</p>
+  {% else %}
+    <p>Upgrade to premium to unlock exclusive features!</p>
+  {% endif %}
+</body>
+</html>

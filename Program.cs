@@ -24,7 +24,7 @@ builder.Services.AddSingleton<ICategoryService, CategoryService>();
 builder.Services.AddSingleton<IVoteService, VoteService>();
 builder.Services.AddHostedService<EmailService>();
 
-builder.Services.AddScoped(typeof(IRabbitMQPublisher<>), typeof(RabbitMQPublisher<>));
+builder.Services.AddSingleton(typeof(IRabbitMQPublisher<>), typeof(RabbitMQPublisher<>));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
