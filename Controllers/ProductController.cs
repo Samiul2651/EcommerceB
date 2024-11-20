@@ -18,7 +18,7 @@ namespace EcommerceWebApi.Controllers{
             _mongoDbService = mongoDbService;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product newProduct)
         {
@@ -70,7 +70,6 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
-
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(string id)
         {
@@ -91,7 +90,6 @@ namespace EcommerceWebApi.Controllers{
 
         }
 
-        
         [HttpGet("getProducts/{page}")]
         public async Task<IActionResult> GetProductsByPage(int page)
         {
@@ -159,9 +157,6 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
-        
-
-
         [HttpGet("productsByCategory/{categoryId}/{page}")]
         public async Task<IActionResult> GetProductsByCategory(string categoryId, int page)
         {
@@ -183,19 +178,16 @@ namespace EcommerceWebApi.Controllers{
             }
         }
 
-        
-
-
         [HttpPost("getProductsByIds")]
-        public IActionResult GetProductsByIds(List<string> ids)
+        public async Task<IActionResult> GetProductsByIds(List<string> ids)
         {
             try
             {
-                var products = _productService.GetProductsByIds(ids);
+                var products =  await _productService.GetProductsByIds(ids);
                 return Ok(
                     new
                     {
-                        products
+                        products = products
                     });
             }
             catch (Exception e)
@@ -205,17 +197,47 @@ namespace EcommerceWebApi.Controllers{
         }
 
         [HttpGet("upvoteProduct/{productId}/{userId}")]
-        public IActionResult UpvoteProduct(string productId, string userId)
+        public async Task<IActionResult> UpvoteProduct(string productId, string userId)
         {
-            _productService.UpvoteProduct(productId, userId);
+            await _productService.UpvoteProduct(productId, userId);
             return Ok();
         }
 
         [HttpGet("downvoteProduct/{productId}/{userId}")]
-        public IActionResult DownvoteProduct(string productId, string userId)
+        public async Task<IActionResult> DownvoteProduct(string productId, string userId)
         {
-            _productService.DownvoteProduct(productId, userId);
+            await _productService.DownvoteProduct(productId, userId);
             return Ok();
+        }
+
+        [HttpPost("addReview")]
+        public async Task<IActionResult> AddReview(Review review)
+        {
+            bool check = await _productService.ReviewAvailability(review.CustomerEmail, review.ProductId);
+            if (!check) return BadRequest();
+            try
+            {
+                await _productService.AddReview(review);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("getReviews/{productId}")]
+        public async Task<IActionResult> GetReviews(string productId)
+        {
+            try
+            {
+                var reviews = await _productService.GetReviews(productId);
+                return Ok(reviews);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "Internal Server Error." });
+            }
         }
     }
 }

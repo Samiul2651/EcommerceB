@@ -7,9 +7,13 @@ using Contracts.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using System;
 using MongoDbService = Business.Services.MongoDbService;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("MongoDbSettings"));
@@ -22,7 +26,6 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddSingleton<IAuthService, AuthService>();
 builder.Services.AddSingleton<ICategoryService, CategoryService>();
 builder.Services.AddSingleton<IVoteService, VoteService>();
-builder.Services.AddHostedService<EmailService>();
 
 builder.Services.AddSingleton(typeof(IRabbitMQPublisher<>), typeof(RabbitMQPublisher<>));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -84,6 +87,14 @@ builder.Services.AddSwaggerGen(setup =>
         { jwtSecurityScheme, Array.Empty<string>() }
     });
 });
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Verbose()
+    .WriteTo.Console()
+    .WriteTo.File("logs/myapp.txt")
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 

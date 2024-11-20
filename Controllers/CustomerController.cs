@@ -70,17 +70,16 @@ namespace EcommerceWebApi.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPost("order")]
-        public IActionResult SubmitOrder(Order order)
-        { 
-            //var result = 
-            _orderService.SubmitOrder(order);
-            //if (result)
-            //{
+        public async Task<IActionResult> SubmitOrder(Order order)
+        {
+            var result = await _orderService.SubmitOrder(order);
+            if (result)
+            {
                 return Ok();
-            //}
-            //return StatusCode(500, "Internal Server Error.");
+            }
+            return StatusCode(500, "Internal Server Error.");
         }
 
         [HttpPost("token")]

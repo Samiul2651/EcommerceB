@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Contracts", "1.Contracts"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Application", "3.Application", "{90C481DE-ACBC-43B3-94BB-CC87FBA3DFFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receive", "..\Receive\Receive.csproj", "{070ACA5F-D08D-47D4-A06B-CF6C1E181090}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSender", "..\Receive\EmailSender.csproj", "{070ACA5F-D08D-47D4-A06B-CF6C1E181090}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

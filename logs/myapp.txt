@@ -1,0 +1,726 @@
+2024-11-20 17:59:32.811 +06:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-11-20 17:59:32.876 +06:00 [DBG] Hosting starting
+2024-11-20 17:59:32.899 +06:00 [INF] User profile is available. Using 'C:\Users\samiul\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-20 17:59:32.904 +06:00 [DBG] Reading data from file 'C:\Users\samiul\AppData\Local\ASP.NET\DataProtection-Keys\key-0e2b45f3-b97d-4eb6-8324-a192d50ef09d.xml'.
+2024-11-20 17:59:32.911 +06:00 [DBG] Found key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d}.
+2024-11-20 17:59:32.918 +06:00 [DBG] Considering key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} with expiration date 2025-01-27 09:28:07Z as default key.
+2024-11-20 17:59:32.921 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-20 17:59:32.923 +06:00 [DBG] Decrypting secret element using Windows DPAPI.
+2024-11-20 17:59:32.924 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-20 17:59:32.927 +06:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2024-11-20 17:59:32.929 +06:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2024-11-20 17:59:32.930 +06:00 [DBG] Using key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} as the default key.
+2024-11-20 17:59:32.931 +06:00 [DBG] Key ring with default key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} was loaded during application startup.
+2024-11-20 17:59:33.072 +06:00 [INF] Now listening on: https://localhost:7276
+2024-11-20 17:59:33.073 +06:00 [INF] Now listening on: http://localhost:5193
+2024-11-20 17:59:33.074 +06:00 [DBG] Loaded hosting startup assembly EcommerceWebApi
+2024-11-20 17:59:33.074 +06:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2024-11-20 17:59:33.075 +06:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2024-11-20 17:59:33.076 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 17:59:33.076 +06:00 [INF] Hosting environment: Development
+2024-11-20 17:59:33.077 +06:00 [INF] Content root path: C:\Users\samiul\EcommerceWebApi
+2024-11-20 17:59:33.078 +06:00 [DBG] Hosting started
+2024-11-20 17:59:33.291 +06:00 [DBG] Connection id "0HN89BB62278M" accepted.
+2024-11-20 17:59:33.291 +06:00 [DBG] Connection id "0HN89BB62278N" accepted.
+2024-11-20 17:59:33.292 +06:00 [DBG] Connection id "0HN89BB62278M" started.
+2024-11-20 17:59:33.292 +06:00 [DBG] Connection id "0HN89BB62278N" started.
+2024-11-20 17:59:33.301 +06:00 [DBG] Connection id "0HN89BB62278N" received FIN.
+2024-11-20 17:59:33.301 +06:00 [DBG] Connection id "0HN89BB62278M" received FIN.
+2024-11-20 17:59:33.304 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-20 17:59:33.304 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-20 17:59:33.327 +06:00 [DBG] Connection id "0HN89BB62278N" stopped.
+2024-11-20 17:59:33.327 +06:00 [DBG] Connection id "0HN89BB62278M" stopped.
+2024-11-20 17:59:33.329 +06:00 [DBG] Connection id "0HN89BB62278M" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 17:59:33.329 +06:00 [DBG] Connection id "0HN89BB62278N" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 17:59:36.250 +06:00 [DBG] Connection id "0HN89BB62278O" accepted.
+2024-11-20 17:59:36.252 +06:00 [DBG] Connection id "0HN89BB62278O" started.
+2024-11-20 17:59:36.297 +06:00 [DBG] Connection 0HN89BB62278O established using the following protocol: "Tls13"
+2024-11-20 17:59:36.356 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger - null null
+2024-11-20 17:59:36.405 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/index.html - null null
+2024-11-20 17:59:36.453 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-20 17:59:36.453 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-20 17:59:36.469 +06:00 [DBG] No candidates found for the request path '/swagger'
+2024-11-20 17:59:36.469 +06:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2024-11-20 17:59:36.470 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 17:59:36.471 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 17:59:36.493 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger - 499 null null 139.4717ms
+2024-11-20 17:59:36.544 +06:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2024-11-20 17:59:36.557 +06:00 [DBG] Response markup was updated to include browser refresh script injection.
+2024-11-20 17:59:36.558 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/index.html - 200 null text/html;charset=utf-8 153.1837ms
+2024-11-20 17:59:36.617 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/swagger-ui.css - null null
+2024-11-20 17:59:36.618 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_vs/browserLink - null null
+2024-11-20 17:59:36.618 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-20 17:59:36.617 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/swagger-ui-bundle.js - null null
+2024-11-20 17:59:36.619 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/swagger-ui-standalone-preset.js - null null
+2024-11-20 17:59:36.620 +06:00 [DBG] No candidates found for the request path '/swagger/swagger-ui.css'
+2024-11-20 17:59:36.634 +06:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-standalone-preset.js'
+2024-11-20 17:59:36.635 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 17:59:36.635 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 17:59:36.626 +06:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js'
+2024-11-20 17:59:36.634 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 16.9873ms
+2024-11-20 17:59:36.638 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 17:59:36.640 +06:00 [INF] The file /swagger-ui-standalone-preset.js was not modified
+2024-11-20 17:59:36.641 +06:00 [INF] The file /swagger-ui-bundle.js was not modified
+2024-11-20 17:59:36.645 +06:00 [DBG] Handled. Status code: 304 File: /swagger-ui-bundle.js
+2024-11-20 17:59:36.645 +06:00 [DBG] Handled. Status code: 304 File: /swagger-ui-standalone-preset.js
+2024-11-20 17:59:36.647 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/swagger-ui-bundle.js - 304 null text/javascript 29.7658ms
+2024-11-20 17:59:36.648 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/swagger-ui-standalone-preset.js - 304 null text/javascript 28.8221ms
+2024-11-20 17:59:36.647 +06:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-20 17:59:36.658 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/swagger-ui.css - 200 143943 text/css 41.2818ms
+2024-11-20 17:59:36.658 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.9572ms
+2024-11-20 17:59:36.727 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/favicon-16x16.png - null null
+2024-11-20 17:59:36.730 +06:00 [DBG] No candidates found for the request path '/swagger/favicon-16x16.png'
+2024-11-20 17:59:36.731 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 17:59:36.733 +06:00 [DBG] The file transmission was cancelled
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileContext.SendAsync()
+2024-11-20 17:59:36.735 +06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2024-11-20 17:59:36.736 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/favicon-16x16.png - 499 665 image/png 9.4208ms
+2024-11-20 17:59:36.749 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - null null
+2024-11-20 17:59:36.752 +06:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2024-11-20 17:59:36.753 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 17:59:36.842 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 93.4017ms
+2024-11-20 18:02:27.450 +06:00 [DBG] Connection id "0HN89BB62278O" received FIN.
+2024-11-20 18:02:27.458 +06:00 [DBG] Connection id "0HN89BB62278O" is closing.
+2024-11-20 18:02:27.461 +06:00 [DBG] The connection queue processing loop for 0HN89BB62278O completed.
+2024-11-20 18:02:27.462 +06:00 [DBG] Connection id "0HN89BB62278O" is closed. The last processed stream ID was 19.
+2024-11-20 18:02:27.462 +06:00 [DBG] Connection id "0HN89BB62278O" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:02:27.466 +06:00 [DBG] Connection id "0HN89BB62278O" stopped.
+2024-11-20 18:16:20.248 +06:00 [DBG] Connection id "0HN89BB62278P" accepted.
+2024-11-20 18:16:20.252 +06:00 [DBG] Connection id "0HN89BB62278P" started.
+2024-11-20 18:16:20.257 +06:00 [DBG] Connection 0HN89BB62278P established using the following protocol: "Tls13"
+2024-11-20 18:16:20.263 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7276/api/Product - application/json 182
+2024-11-20 18:16:20.267 +06:00 [DBG] 1 candidate(s) found for the request path '/api/Product'
+2024-11-20 18:16:20.270 +06:00 [DBG] Endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)' with route pattern 'api/Product' is valid for the request path '/api/Product'
+2024-11-20 18:16:20.272 +06:00 [DBG] Request matched endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:16:20.274 +06:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-11-20 18:16:20.275 +06:00 [DBG] The request has an origin header: 'https://localhost:7276'.
+2024-11-20 18:16:20.276 +06:00 [INF] CORS policy execution failed.
+2024-11-20 18:16:20.276 +06:00 [INF] Request origin https://localhost:7276 does not have permission to access the resource.
+2024-11-20 18:16:20.320 +06:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2024-11-20 18:16:20.323 +06:00 [DBG] Policy authentication schemes  did not succeed
+2024-11-20 18:16:20.325 +06:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-20 18:16:20.327 +06:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-11-20 18:16:20.328 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7276/api/Product - 401 0 null 66.2874ms
+2024-11-20 18:16:20.331 +06:00 [DBG] Connection id "0HN89BB62278P", Request id "0HN89BB62278P:00000003": started reading request body.
+2024-11-20 18:16:20.331 +06:00 [DBG] Connection id "0HN89BB62278P", Request id "0HN89BB62278P:00000003": done reading request body.
+2024-11-20 18:17:00.260 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7276/api/Customer/login - application/json 105
+2024-11-20 18:17:00.266 +06:00 [DBG] 1 candidate(s) found for the request path '/api/Customer/login'
+2024-11-20 18:17:00.267 +06:00 [DBG] Endpoint 'EcommerceWebApi.Controllers.CustomerController.LogIn (EcommerceWebApi)' with route pattern 'api/Customer/login' is valid for the request path '/api/Customer/login'
+2024-11-20 18:17:00.268 +06:00 [DBG] Request matched endpoint 'EcommerceWebApi.Controllers.CustomerController.LogIn (EcommerceWebApi)'
+2024-11-20 18:17:00.269 +06:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-11-20 18:17:00.270 +06:00 [DBG] The request has an origin header: 'https://localhost:7276'.
+2024-11-20 18:17:00.270 +06:00 [INF] CORS policy execution failed.
+2024-11-20 18:17:00.271 +06:00 [INF] Request origin https://localhost:7276 does not have permission to access the resource.
+2024-11-20 18:17:00.274 +06:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2024-11-20 18:17:00.275 +06:00 [INF] Executing endpoint 'EcommerceWebApi.Controllers.CustomerController.LogIn (EcommerceWebApi)'
+2024-11-20 18:17:00.298 +06:00 [INF] Route matched with {action = "LogIn", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LogIn(Contracts.Models.Customer) on controller EcommerceWebApi.Controllers.CustomerController (EcommerceWebApi).
+2024-11-20 18:17:00.300 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-11-20 18:17:00.301 +06:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-11-20 18:17:00.303 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-11-20 18:17:00.304 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-11-20 18:17:00.305 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-11-20 18:17:00.308 +06:00 [DBG] Executing controller factory for controller EcommerceWebApi.Controllers.CustomerController (EcommerceWebApi)
+2024-11-20 18:17:00.756 +06:00 [DBG] Executed controller factory for controller EcommerceWebApi.Controllers.CustomerController (EcommerceWebApi)
+2024-11-20 18:17:00.766 +06:00 [DBG] Attempting to bind parameter 'customer' of type 'Contracts.Models.Customer' ...
+2024-11-20 18:17:00.768 +06:00 [DBG] Attempting to bind parameter 'customer' of type 'Contracts.Models.Customer' using the name '' in request data ...
+2024-11-20 18:17:00.770 +06:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2024-11-20 18:17:00.801 +06:00 [DBG] Connection id "0HN89BB62278P", Request id "0HN89BB62278P:00000005": started reading request body.
+2024-11-20 18:17:00.803 +06:00 [DBG] Connection id "0HN89BB62278P", Request id "0HN89BB62278P:00000005": done reading request body.
+2024-11-20 18:17:00.835 +06:00 [DBG] JSON input formatter succeeded, deserializing to type 'Contracts.Models.Customer'
+2024-11-20 18:17:00.837 +06:00 [DBG] Done attempting to bind parameter 'customer' of type 'Contracts.Models.Customer'.
+2024-11-20 18:17:00.838 +06:00 [DBG] Done attempting to bind parameter 'customer' of type 'Contracts.Models.Customer'.
+2024-11-20 18:17:00.840 +06:00 [DBG] Attempting to validate the bound parameter 'customer' of type 'Contracts.Models.Customer' ...
+2024-11-20 18:17:00.845 +06:00 [DBG] Done attempting to validate the bound parameter 'customer' of type 'Contracts.Models.Customer'.
+2024-11-20 18:17:01.045 +06:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2024-11-20 18:17:01.047 +06:00 [DBG] No information found on request to perform content negotiation.
+2024-11-20 18:17:01.048 +06:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-11-20 18:17:01.048 +06:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2024-11-20 18:17:01.050 +06:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-11-20 18:17:01.051 +06:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[Contracts.DTO.CustomerDTO, Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-11-20 18:17:01.061 +06:00 [INF] Executed action EcommerceWebApi.Controllers.CustomerController.LogIn (EcommerceWebApi) in 751.505ms
+2024-11-20 18:17:01.062 +06:00 [INF] Executed endpoint 'EcommerceWebApi.Controllers.CustomerController.LogIn (EcommerceWebApi)'
+2024-11-20 18:17:01.064 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7276/api/Customer/login - 200 null application/json; charset=utf-8 803.7087ms
+2024-11-20 18:17:19.065 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7276/api/Product - application/json 182
+2024-11-20 18:17:19.067 +06:00 [DBG] 1 candidate(s) found for the request path '/api/Product'
+2024-11-20 18:17:19.069 +06:00 [DBG] Endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)' with route pattern 'api/Product' is valid for the request path '/api/Product'
+2024-11-20 18:17:19.070 +06:00 [DBG] Request matched endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:17:19.071 +06:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-11-20 18:17:19.071 +06:00 [DBG] The request has an origin header: 'https://localhost:7276'.
+2024-11-20 18:17:19.072 +06:00 [INF] CORS policy execution failed.
+2024-11-20 18:17:19.073 +06:00 [INF] Request origin https://localhost:7276 does not have permission to access the resource.
+2024-11-20 18:17:19.111 +06:00 [DBG] Successfully validated the token.
+2024-11-20 18:17:19.113 +06:00 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2024-11-20 18:17:19.115 +06:00 [DBG] Authorization was successful.
+2024-11-20 18:17:19.116 +06:00 [INF] Executing endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:17:19.121 +06:00 [INF] Route matched with {action = "AddProduct", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddProduct(Contracts.Models.Product) on controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi).
+2024-11-20 18:17:19.122 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-11-20 18:17:19.124 +06:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-11-20 18:17:19.125 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-11-20 18:17:19.127 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-11-20 18:17:19.128 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-11-20 18:17:19.129 +06:00 [DBG] Executing controller factory for controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi)
+2024-11-20 18:17:19.130 +06:00 [DBG] Executed controller factory for controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi)
+2024-11-20 18:17:19.132 +06:00 [DBG] Attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product' ...
+2024-11-20 18:17:19.133 +06:00 [DBG] Attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product' using the name '' in request data ...
+2024-11-20 18:17:19.134 +06:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2024-11-20 18:17:19.136 +06:00 [DBG] Connection id "0HN89BB62278P", Request id "0HN89BB62278P:00000007": started reading request body.
+2024-11-20 18:17:19.137 +06:00 [DBG] Connection id "0HN89BB62278P", Request id "0HN89BB62278P:00000007": done reading request body.
+2024-11-20 18:17:19.141 +06:00 [DBG] JSON input formatter succeeded, deserializing to type 'Contracts.Models.Product'
+2024-11-20 18:17:19.142 +06:00 [DBG] Done attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:17:19.142 +06:00 [DBG] Done attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:17:19.143 +06:00 [DBG] Attempting to validate the bound parameter 'newProduct' of type 'Contracts.Models.Product' ...
+2024-11-20 18:17:19.145 +06:00 [DBG] Done attempting to validate the bound parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:17:19.156 +06:00 [DBG] LogDebugResult of add Project: True
+2024-11-20 18:17:19.183 +06:00 [DBG] Found the endpoints ["EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi)"] for address (id=[string],action=[GetProduct],controller=[Product])
+2024-11-20 18:17:19.186 +06:00 [DBG] Successfully processed template api/Product/{id} for EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi) resulting in /api/Product/string and 
+2024-11-20 18:17:19.188 +06:00 [DBG] Link generation succeeded for endpoints ["EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi)"] with result /api/Product/string
+2024-11-20 18:17:19.188 +06:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2024-11-20 18:17:19.190 +06:00 [DBG] No information found on request to perform content negotiation.
+2024-11-20 18:17:19.190 +06:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-11-20 18:17:19.190 +06:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2024-11-20 18:17:19.191 +06:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-11-20 18:17:19.191 +06:00 [INF] Executing CreatedResult, writing value of type 'Contracts.Models.Product'.
+2024-11-20 18:17:19.193 +06:00 [INF] Executed action EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi) in 63.9246ms
+2024-11-20 18:17:19.193 +06:00 [INF] Executed endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:17:19.194 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7276/api/Product - 201 null application/json; charset=utf-8 129.1028ms
+2024-11-20 18:23:45.465 +06:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-11-20 18:23:45.525 +06:00 [DBG] Hosting starting
+2024-11-20 18:23:45.551 +06:00 [INF] User profile is available. Using 'C:\Users\samiul\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-20 18:23:45.560 +06:00 [DBG] Reading data from file 'C:\Users\samiul\AppData\Local\ASP.NET\DataProtection-Keys\key-0e2b45f3-b97d-4eb6-8324-a192d50ef09d.xml'.
+2024-11-20 18:23:45.565 +06:00 [DBG] Found key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d}.
+2024-11-20 18:23:45.571 +06:00 [DBG] Considering key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} with expiration date 2025-01-27 09:28:07Z as default key.
+2024-11-20 18:23:45.573 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-20 18:23:45.575 +06:00 [DBG] Decrypting secret element using Windows DPAPI.
+2024-11-20 18:23:45.576 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-20 18:23:45.579 +06:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2024-11-20 18:23:45.581 +06:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2024-11-20 18:23:45.582 +06:00 [DBG] Using key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} as the default key.
+2024-11-20 18:23:45.584 +06:00 [DBG] Key ring with default key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} was loaded during application startup.
+2024-11-20 18:23:45.724 +06:00 [INF] Now listening on: https://localhost:7276
+2024-11-20 18:23:45.725 +06:00 [INF] Now listening on: http://localhost:5193
+2024-11-20 18:23:45.726 +06:00 [DBG] Loaded hosting startup assembly EcommerceWebApi
+2024-11-20 18:23:45.727 +06:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2024-11-20 18:23:45.727 +06:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2024-11-20 18:23:45.728 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 18:23:45.729 +06:00 [INF] Hosting environment: Development
+2024-11-20 18:23:45.730 +06:00 [INF] Content root path: C:\Users\samiul\EcommerceWebApi
+2024-11-20 18:23:45.731 +06:00 [DBG] Hosting started
+2024-11-20 18:23:46.120 +06:00 [DBG] Connection id "0HN89BON1AO6J" accepted.
+2024-11-20 18:23:46.120 +06:00 [DBG] Connection id "0HN89BON1AO6K" accepted.
+2024-11-20 18:23:46.122 +06:00 [DBG] Connection id "0HN89BON1AO6J" started.
+2024-11-20 18:23:46.122 +06:00 [DBG] Connection id "0HN89BON1AO6K" started.
+2024-11-20 18:23:46.128 +06:00 [DBG] Connection id "0HN89BON1AO6K" received FIN.
+2024-11-20 18:23:46.128 +06:00 [DBG] Connection id "0HN89BON1AO6J" received FIN.
+2024-11-20 18:23:46.134 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-20 18:23:46.134 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-20 18:23:46.153 +06:00 [DBG] Connection id "0HN89BON1AO6J" stopped.
+2024-11-20 18:23:46.153 +06:00 [DBG] Connection id "0HN89BON1AO6K" stopped.
+2024-11-20 18:23:46.155 +06:00 [DBG] Connection id "0HN89BON1AO6K" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:23:46.155 +06:00 [DBG] Connection id "0HN89BON1AO6J" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:23:48.805 +06:00 [DBG] Connection id "0HN89BON1AO6L" accepted.
+2024-11-20 18:23:48.807 +06:00 [DBG] Connection id "0HN89BON1AO6L" started.
+2024-11-20 18:23:48.849 +06:00 [DBG] Connection 0HN89BON1AO6L established using the following protocol: "Tls13"
+2024-11-20 18:23:48.879 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger - null null
+2024-11-20 18:23:48.910 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/index.html - null null
+2024-11-20 18:23:48.953 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-20 18:23:48.953 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-20 18:23:48.964 +06:00 [DBG] No candidates found for the request path '/swagger'
+2024-11-20 18:23:48.964 +06:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2024-11-20 18:23:48.965 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:23:48.965 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:23:48.988 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger - 499 null null 111.3588ms
+2024-11-20 18:23:49.030 +06:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2024-11-20 18:23:49.045 +06:00 [DBG] Response markup was updated to include browser refresh script injection.
+2024-11-20 18:23:49.047 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/index.html - 200 null text/html;charset=utf-8 137.0918ms
+2024-11-20 18:23:49.085 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/swagger-ui.css - null null
+2024-11-20 18:23:49.086 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-20 18:23:49.086 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_vs/browserLink - null null
+2024-11-20 18:23:49.088 +06:00 [DBG] No candidates found for the request path '/swagger/swagger-ui.css'
+2024-11-20 18:23:49.092 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:23:49.093 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 7.645ms
+2024-11-20 18:23:49.097 +06:00 [DBG] The file transmission was cancelled
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileContext.SendAsync()
+2024-11-20 18:23:49.100 +06:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-20 18:23:49.102 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/swagger-ui.css - 499 143943 text/css 16.805ms
+2024-11-20 18:23:49.118 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.1161ms
+2024-11-20 18:23:49.146 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/favicon-16x16.png - null null
+2024-11-20 18:23:49.148 +06:00 [DBG] No candidates found for the request path '/swagger/favicon-16x16.png'
+2024-11-20 18:23:49.149 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:23:49.151 +06:00 [DBG] The file transmission was cancelled
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileContext.SendAsync()
+2024-11-20 18:23:49.154 +06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2024-11-20 18:23:49.155 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/favicon-16x16.png - 499 665 image/png 8.8117ms
+2024-11-20 18:23:49.167 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - null null
+2024-11-20 18:23:49.169 +06:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2024-11-20 18:23:49.170 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:23:49.243 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 76.2782ms
+2024-11-20 18:26:40.239 +06:00 [DBG] Connection id "0HN89BON1AO6L" received FIN.
+2024-11-20 18:26:40.247 +06:00 [DBG] Connection id "0HN89BON1AO6L" is closing.
+2024-11-20 18:26:40.249 +06:00 [DBG] The connection queue processing loop for 0HN89BON1AO6L completed.
+2024-11-20 18:26:40.250 +06:00 [DBG] Connection id "0HN89BON1AO6L" is closed. The last processed stream ID was 15.
+2024-11-20 18:26:40.252 +06:00 [DBG] Connection id "0HN89BON1AO6L" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:26:40.255 +06:00 [DBG] Connection id "0HN89BON1AO6L" stopped.
+2024-11-20 18:35:05.359 +06:00 [DBG] Connection id "0HN89BON1AO6M" accepted.
+2024-11-20 18:35:05.364 +06:00 [DBG] Connection id "0HN89BON1AO6M" started.
+2024-11-20 18:35:05.368 +06:00 [DBG] Connection 0HN89BON1AO6M established using the following protocol: "Tls13"
+2024-11-20 18:35:05.382 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7276/api/Product - application/json 181
+2024-11-20 18:35:05.391 +06:00 [DBG] 1 candidate(s) found for the request path '/api/Product'
+2024-11-20 18:35:05.394 +06:00 [DBG] Endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)' with route pattern 'api/Product' is valid for the request path '/api/Product'
+2024-11-20 18:35:05.397 +06:00 [DBG] Request matched endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:35:05.399 +06:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-11-20 18:35:05.400 +06:00 [DBG] The request has an origin header: 'https://localhost:7276'.
+2024-11-20 18:35:05.401 +06:00 [INF] CORS policy execution failed.
+2024-11-20 18:35:05.402 +06:00 [INF] Request origin https://localhost:7276 does not have permission to access the resource.
+2024-11-20 18:35:05.452 +06:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2024-11-20 18:35:05.456 +06:00 [DBG] Policy authentication schemes  did not succeed
+2024-11-20 18:35:05.459 +06:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2024-11-20 18:35:05.462 +06:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-11-20 18:35:05.464 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7276/api/Product - 401 0 null 81.2491ms
+2024-11-20 18:35:05.466 +06:00 [DBG] Connection id "0HN89BON1AO6M", Request id "0HN89BON1AO6M:00000003": started reading request body.
+2024-11-20 18:35:05.467 +06:00 [DBG] Connection id "0HN89BON1AO6M", Request id "0HN89BON1AO6M:00000003": done reading request body.
+2024-11-20 18:35:40.777 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/index.html - null null
+2024-11-20 18:35:40.788 +06:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2024-11-20 18:35:40.788 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:35:40.797 +06:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2024-11-20 18:35:40.799 +06:00 [DBG] Response markup was updated to include browser refresh script injection.
+2024-11-20 18:35:40.800 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/index.html - 200 null text/html;charset=utf-8 23.0916ms
+2024-11-20 18:35:40.826 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_vs/browserLink - null null
+2024-11-20 18:35:40.826 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-20 18:35:40.836 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 9.6069ms
+2024-11-20 18:35:40.855 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.3703ms
+2024-11-20 18:35:40.950 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - null null
+2024-11-20 18:35:40.952 +06:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2024-11-20 18:35:40.953 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:35:40.966 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.9517ms
+2024-11-20 18:35:59.998 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7276/api/Product - application/json 181
+2024-11-20 18:35:59.999 +06:00 [DBG] 1 candidate(s) found for the request path '/api/Product'
+2024-11-20 18:36:00.000 +06:00 [DBG] Endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)' with route pattern 'api/Product' is valid for the request path '/api/Product'
+2024-11-20 18:36:00.001 +06:00 [DBG] Request matched endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:36:00.002 +06:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-11-20 18:36:00.003 +06:00 [DBG] The request has an origin header: 'https://localhost:7276'.
+2024-11-20 18:36:00.003 +06:00 [INF] CORS policy execution failed.
+2024-11-20 18:36:00.003 +06:00 [INF] Request origin https://localhost:7276 does not have permission to access the resource.
+2024-11-20 18:36:00.007 +06:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2024-11-20 18:36:00.009 +06:00 [INF] Executing endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:36:00.030 +06:00 [INF] Route matched with {action = "AddProduct", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddProduct(Contracts.Models.Product) on controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi).
+2024-11-20 18:36:00.032 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-11-20 18:36:00.032 +06:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-11-20 18:36:00.033 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-11-20 18:36:00.034 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-11-20 18:36:00.035 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-11-20 18:36:00.036 +06:00 [DBG] Executing controller factory for controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi)
+2024-11-20 18:36:00.133 +06:00 [DBG] Executed controller factory for controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi)
+2024-11-20 18:36:00.136 +06:00 [DBG] Attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product' ...
+2024-11-20 18:36:00.138 +06:00 [DBG] Attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product' using the name '' in request data ...
+2024-11-20 18:36:00.139 +06:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2024-11-20 18:36:00.144 +06:00 [DBG] Connection id "0HN89BON1AO6M", Request id "0HN89BON1AO6M:0000000D": started reading request body.
+2024-11-20 18:36:00.145 +06:00 [DBG] Connection id "0HN89BON1AO6M", Request id "0HN89BON1AO6M:0000000D": done reading request body.
+2024-11-20 18:36:00.152 +06:00 [DBG] JSON input formatter succeeded, deserializing to type 'Contracts.Models.Product'
+2024-11-20 18:36:00.153 +06:00 [DBG] Done attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:36:00.154 +06:00 [DBG] Done attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:36:00.154 +06:00 [DBG] Attempting to validate the bound parameter 'newProduct' of type 'Contracts.Models.Product' ...
+2024-11-20 18:36:00.161 +06:00 [DBG] Done attempting to validate the bound parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:36:00.350 +06:00 [DBG] LogDebugResult of add Project: True
+2024-11-20 18:36:00.366 +06:00 [DBG] Found the endpoints ["EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi)"] for address (id=[string],action=[GetProduct],controller=[Product])
+2024-11-20 18:36:00.369 +06:00 [DBG] Successfully processed template api/Product/{id} for EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi) resulting in /api/Product/string and 
+2024-11-20 18:36:00.371 +06:00 [DBG] Link generation succeeded for endpoints ["EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi)"] with result /api/Product/string
+2024-11-20 18:36:00.375 +06:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2024-11-20 18:36:00.377 +06:00 [DBG] No information found on request to perform content negotiation.
+2024-11-20 18:36:00.378 +06:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-11-20 18:36:00.378 +06:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2024-11-20 18:36:00.379 +06:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-11-20 18:36:00.380 +06:00 [INF] Executing CreatedResult, writing value of type 'Contracts.Models.Product'.
+2024-11-20 18:36:00.387 +06:00 [INF] Executed action EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi) in 348.855ms
+2024-11-20 18:36:00.388 +06:00 [INF] Executed endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:36:00.389 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7276/api/Product - 201 null application/json; charset=utf-8 391.8056ms
+2024-11-20 18:40:39.991 +06:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-11-20 18:40:40.046 +06:00 [DBG] Hosting starting
+2024-11-20 18:40:40.065 +06:00 [INF] User profile is available. Using 'C:\Users\samiul\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-20 18:40:40.074 +06:00 [DBG] Reading data from file 'C:\Users\samiul\AppData\Local\ASP.NET\DataProtection-Keys\key-0e2b45f3-b97d-4eb6-8324-a192d50ef09d.xml'.
+2024-11-20 18:40:40.079 +06:00 [DBG] Found key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d}.
+2024-11-20 18:40:40.083 +06:00 [DBG] Considering key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} with expiration date 2025-01-27 09:28:07Z as default key.
+2024-11-20 18:40:40.085 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-20 18:40:40.087 +06:00 [DBG] Decrypting secret element using Windows DPAPI.
+2024-11-20 18:40:40.088 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-20 18:40:40.090 +06:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2024-11-20 18:40:40.091 +06:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2024-11-20 18:40:40.093 +06:00 [DBG] Using key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} as the default key.
+2024-11-20 18:40:40.093 +06:00 [DBG] Key ring with default key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} was loaded during application startup.
+2024-11-20 18:40:40.202 +06:00 [INF] Now listening on: https://localhost:7276
+2024-11-20 18:40:40.203 +06:00 [INF] Now listening on: http://localhost:5193
+2024-11-20 18:40:40.204 +06:00 [DBG] Loaded hosting startup assembly EcommerceWebApi
+2024-11-20 18:40:40.205 +06:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2024-11-20 18:40:40.205 +06:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2024-11-20 18:40:40.206 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 18:40:40.207 +06:00 [INF] Hosting environment: Development
+2024-11-20 18:40:40.207 +06:00 [INF] Content root path: C:\Users\samiul\EcommerceWebApi
+2024-11-20 18:40:40.208 +06:00 [DBG] Hosting started
+2024-11-20 18:40:40.564 +06:00 [DBG] Connection id "0HN89C25BQ7V8" accepted.
+2024-11-20 18:40:40.564 +06:00 [DBG] Connection id "0HN89C25BQ7V9" accepted.
+2024-11-20 18:40:40.565 +06:00 [DBG] Connection id "0HN89C25BQ7V8" started.
+2024-11-20 18:40:40.566 +06:00 [DBG] Connection id "0HN89C25BQ7V9" started.
+2024-11-20 18:40:40.583 +06:00 [DBG] Connection id "0HN89C25BQ7V8" received FIN.
+2024-11-20 18:40:40.583 +06:00 [DBG] Connection id "0HN89C25BQ7V9" received FIN.
+2024-11-20 18:40:40.588 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-20 18:40:40.588 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-20 18:40:40.609 +06:00 [DBG] Connection id "0HN89C25BQ7V9" stopped.
+2024-11-20 18:40:40.609 +06:00 [DBG] Connection id "0HN89C25BQ7V8" stopped.
+2024-11-20 18:40:40.611 +06:00 [DBG] Connection id "0HN89C25BQ7V8" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:40:40.611 +06:00 [DBG] Connection id "0HN89C25BQ7V9" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:40:45.772 +06:00 [DBG] Connection id "0HN89C25BQ7VA" accepted.
+2024-11-20 18:40:45.773 +06:00 [DBG] Connection id "0HN89C25BQ7VA" started.
+2024-11-20 18:40:45.817 +06:00 [DBG] Connection 0HN89C25BQ7VA established using the following protocol: "Tls13"
+2024-11-20 18:40:45.835 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2024-11-20 18:40:45.839 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2024-11-20 18:40:45.842 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "SETTINGS" frame for stream ID 0 with length 30 and flags "NONE".
+2024-11-20 18:40:45.844 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2024-11-20 18:40:45.847 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2024-11-20 18:40:45.849 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2024-11-20 18:40:45.860 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "HEADERS" frame for stream ID 3 with length 314 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-11-20 18:40:45.874 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "WINDOW_UPDATE" frame for stream ID 3 with length 4 and flags 0x0.
+2024-11-20 18:40:45.875 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "RST_STREAM" frame for stream ID 3 with length 4 and flags 0x0.
+2024-11-20 18:40:45.887 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger - null null
+2024-11-20 18:40:45.934 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "HEADERS" frame for stream ID 5 with length 36 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-11-20 18:40:45.936 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "WINDOW_UPDATE" frame for stream ID 5 with length 4 and flags 0x0.
+2024-11-20 18:40:45.937 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/index.html - null null
+2024-11-20 18:40:45.979 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-20 18:40:45.979 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-20 18:40:45.980 +06:00 [VRB] All hosts are allowed.
+2024-11-20 18:40:45.981 +06:00 [VRB] All hosts are allowed.
+2024-11-20 18:40:45.993 +06:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2024-11-20 18:40:45.993 +06:00 [DBG] No candidates found for the request path '/swagger'
+2024-11-20 18:40:45.994 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:40:45.994 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:40:46.014 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger - 499 null null 130.7619ms
+2024-11-20 18:40:46.061 +06:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2024-11-20 18:40:46.065 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "HEADERS" frame for stream ID 5 with length 66 and flags "END_HEADERS".
+2024-11-20 18:40:46.071 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 5 with length 4096 and flags "NONE".
+2024-11-20 18:40:46.077 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 5 with length 995 and flags "NONE".
+2024-11-20 18:40:46.079 +06:00 [DBG] Response markup was updated to include browser refresh script injection.
+2024-11-20 18:40:46.079 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 5 with length 81 and flags "NONE".
+2024-11-20 18:40:46.081 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/index.html - 200 null text/html;charset=utf-8 144.3785ms
+2024-11-20 18:40:46.082 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 5 with length 0 and flags "END_STREAM".
+2024-11-20 18:40:46.135 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "HEADERS" frame for stream ID 7 with length 109 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-11-20 18:40:46.138 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "WINDOW_UPDATE" frame for stream ID 7 with length 4 and flags 0x0.
+2024-11-20 18:40:46.138 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-20 18:40:46.144 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "HEADERS" frame for stream ID 7 with length 60 and flags "END_HEADERS".
+2024-11-20 18:40:46.146 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 7 with length 13766 and flags "NONE".
+2024-11-20 18:40:46.149 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 7 with length 0 and flags "END_STREAM".
+2024-11-20 18:40:46.149 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 10.8478ms
+2024-11-20 18:40:46.153 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "HEADERS" frame for stream ID 9 with length 56 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-11-20 18:40:46.155 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "WINDOW_UPDATE" frame for stream ID 9 with length 4 and flags 0x0.
+2024-11-20 18:40:46.155 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_vs/browserLink - null null
+2024-11-20 18:40:46.179 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "HEADERS" frame for stream ID 9 with length 119 and flags "END_HEADERS".
+2024-11-20 18:40:46.181 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 9986 and flags "NONE".
+2024-11-20 18:40:46.184 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.185 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.187 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.189 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.191 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.193 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.195 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.197 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.199 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.201 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.203 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.205 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.207 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.209 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 10240 and flags "NONE".
+2024-11-20 18:40:46.211 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 160 and flags "NONE".
+2024-11-20 18:40:46.212 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_vs/browserLink - 200 null text/javascript; charset=UTF-8 56.7454ms
+2024-11-20 18:40:46.212 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 9 with length 0 and flags "END_STREAM".
+2024-11-20 18:40:46.220 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "HEADERS" frame for stream ID 11 with length 106 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-11-20 18:40:46.222 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "WINDOW_UPDATE" frame for stream ID 11 with length 4 and flags 0x0.
+2024-11-20 18:40:46.222 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/favicon-16x16.png - null null
+2024-11-20 18:40:46.224 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "RST_STREAM" frame for stream ID 11 with length 4 and flags 0x0.
+2024-11-20 18:40:46.226 +06:00 [VRB] All hosts are allowed.
+2024-11-20 18:40:46.228 +06:00 [DBG] No candidates found for the request path '/swagger/favicon-16x16.png'
+2024-11-20 18:40:46.229 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:40:46.232 +06:00 [VRB] Range header's value is empty.
+2024-11-20 18:40:46.235 +06:00 [DBG] The file transmission was cancelled
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileContext.SendAsync()
+2024-11-20 18:40:46.237 +06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2024-11-20 18:40:46.238 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/favicon-16x16.png - 499 665 image/png 15.9016ms
+2024-11-20 18:40:46.245 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "HEADERS" frame for stream ID 13 with length 72 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-11-20 18:40:46.247 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "WINDOW_UPDATE" frame for stream ID 13 with length 4 and flags 0x0.
+2024-11-20 18:40:46.247 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - null null
+2024-11-20 18:40:46.250 +06:00 [VRB] All hosts are allowed.
+2024-11-20 18:40:46.251 +06:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2024-11-20 18:40:46.252 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:40:46.327 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "HEADERS" frame for stream ID 13 with length 65 and flags "END_HEADERS".
+2024-11-20 18:40:46.330 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 13 with length 16384 and flags "NONE".
+2024-11-20 18:40:46.332 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 13 with length 4028 and flags "NONE".
+2024-11-20 18:40:46.334 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 13 with length 0 and flags "END_STREAM".
+2024-11-20 18:40:46.334 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 87.4251ms
+2024-11-20 18:41:02.377 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "HEADERS" frame for stream ID 15 with length 77 and flags "END_HEADERS, PRIORITY".
+2024-11-20 18:41:02.380 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "WINDOW_UPDATE" frame for stream ID 15 with length 4 and flags 0x0.
+2024-11-20 18:41:02.380 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7276/api/Product - application/json 186
+2024-11-20 18:41:02.381 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "DATA" frame for stream ID 15 with length 186 and flags "END_STREAM".
+2024-11-20 18:41:02.382 +06:00 [VRB] All hosts are allowed.
+2024-11-20 18:41:02.389 +06:00 [DBG] 1 candidate(s) found for the request path '/api/Product'
+2024-11-20 18:41:02.392 +06:00 [DBG] Endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)' with route pattern 'api/Product' is valid for the request path '/api/Product'
+2024-11-20 18:41:02.393 +06:00 [DBG] Request matched endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:41:02.394 +06:00 [VRB] The endpoint does not specify the IRequestSizeLimitMetadata.
+2024-11-20 18:41:02.395 +06:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-11-20 18:41:02.397 +06:00 [DBG] The request has an origin header: 'https://localhost:7276'.
+2024-11-20 18:41:02.398 +06:00 [INF] CORS policy execution failed.
+2024-11-20 18:41:02.399 +06:00 [INF] Request origin https://localhost:7276 does not have permission to access the resource.
+2024-11-20 18:41:02.452 +06:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2024-11-20 18:41:02.455 +06:00 [INF] Executing endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:41:02.481 +06:00 [INF] Route matched with {action = "AddProduct", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddProduct(Contracts.Models.Product) on controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi).
+2024-11-20 18:41:02.484 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-11-20 18:41:02.485 +06:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-11-20 18:41:02.487 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-11-20 18:41:02.489 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-11-20 18:41:02.490 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-11-20 18:41:02.493 +06:00 [DBG] Executing controller factory for controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi)
+2024-11-20 18:41:02.691 +06:00 [DBG] Executed controller factory for controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi)
+2024-11-20 18:41:02.702 +06:00 [DBG] Attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product' ...
+2024-11-20 18:41:02.705 +06:00 [DBG] Attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product' using the name '' in request data ...
+2024-11-20 18:41:02.708 +06:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2024-11-20 18:41:02.717 +06:00 [DBG] Connection id "0HN89C25BQ7VA", Request id "0HN89C25BQ7VA:0000000F": started reading request body.
+2024-11-20 18:41:02.718 +06:00 [DBG] Connection id "0HN89C25BQ7VA", Request id "0HN89C25BQ7VA:0000000F": done reading request body.
+2024-11-20 18:41:02.729 +06:00 [DBG] JSON input formatter succeeded, deserializing to type 'Contracts.Models.Product'
+2024-11-20 18:41:02.730 +06:00 [DBG] Done attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:41:02.731 +06:00 [DBG] Done attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:41:02.732 +06:00 [DBG] Attempting to validate the bound parameter 'newProduct' of type 'Contracts.Models.Product' ...
+2024-11-20 18:41:02.741 +06:00 [DBG] Done attempting to validate the bound parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:41:02.744 +06:00 [VRB] Action Filter: Before executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter.
+2024-11-20 18:41:02.745 +06:00 [VRB] Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2024-11-20 18:41:02.747 +06:00 [VRB] Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2024-11-20 18:41:02.748 +06:00 [VRB] Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter.
+2024-11-20 18:41:02.749 +06:00 [VRB] Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter.
+2024-11-20 18:41:02.754 +06:00 [INF] Executing action method EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi) - Validation state: "Valid"
+2024-11-20 18:41:02.755 +06:00 [VRB] Executing action method EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi) with arguments (["Contracts.Models.Product"])
+2024-11-20 18:41:02.759 +06:00 [VRB] LogTrace: Entering AddProduct method in ProductService
+2024-11-20 18:41:02.945 +06:00 [DBG] LogDebug: Result of add Project: True
+2024-11-20 18:41:02.965 +06:00 [DBG] Found the endpoints ["EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi)"] for address (id=[string],action=[GetProduct],controller=[Product])
+2024-11-20 18:41:02.969 +06:00 [DBG] Successfully processed template api/Product/{id} for EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi) resulting in /api/Product/string and 
+2024-11-20 18:41:02.970 +06:00 [DBG] Link generation succeeded for endpoints ["EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi)"] with result /api/Product/string
+2024-11-20 18:41:02.976 +06:00 [INF] Executed action method EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi), returned result Microsoft.AspNetCore.Mvc.CreatedResult in 216.4272ms.
+2024-11-20 18:41:02.977 +06:00 [VRB] Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter.
+2024-11-20 18:41:02.978 +06:00 [VRB] Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter.
+2024-11-20 18:41:02.979 +06:00 [VRB] Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2024-11-20 18:41:02.980 +06:00 [VRB] Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter.
+2024-11-20 18:41:02.982 +06:00 [VRB] Action Filter: After executing OnActionExecutionAsync on filter Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter.
+2024-11-20 18:41:02.983 +06:00 [VRB] Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter.
+2024-11-20 18:41:02.984 +06:00 [VRB] Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter.
+2024-11-20 18:41:02.986 +06:00 [VRB] Before executing action result Microsoft.AspNetCore.Mvc.CreatedResult.
+2024-11-20 18:41:02.987 +06:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2024-11-20 18:41:02.990 +06:00 [DBG] No information found on request to perform content negotiation.
+2024-11-20 18:41:02.990 +06:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-11-20 18:41:02.991 +06:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2024-11-20 18:41:02.992 +06:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-11-20 18:41:02.992 +06:00 [INF] Executing CreatedResult, writing value of type 'Contracts.Models.Product'.
+2024-11-20 18:41:02.998 +06:00 [VRB] After executing action result Microsoft.AspNetCore.Mvc.CreatedResult.
+2024-11-20 18:41:02.998 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "HEADERS" frame for stream ID 15 with length 91 and flags "END_HEADERS".
+2024-11-20 18:41:02.999 +06:00 [VRB] Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter.
+2024-11-20 18:41:02.999 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 15 with length 153 and flags "NONE".
+2024-11-20 18:41:03.000 +06:00 [VRB] Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter.
+2024-11-20 18:41:03.006 +06:00 [INF] Executed action EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi) in 511.2739ms
+2024-11-20 18:41:03.007 +06:00 [INF] Executed endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:41:03.009 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7276/api/Product - 201 null application/json; charset=utf-8 628.824ms
+2024-11-20 18:41:03.009 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "DATA" frame for stream ID 15 with length 0 and flags "END_STREAM".
+2024-11-20 18:42:01.847 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "PING" frame for stream ID 0 with length 8 and flags "NONE".
+2024-11-20 18:42:01.849 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "PING" frame for stream ID 0 with length 8 and flags "ACK".
+2024-11-20 18:43:00.281 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "PING" frame for stream ID 0 with length 8 and flags "NONE".
+2024-11-20 18:43:00.285 +06:00 [VRB] Connection id "0HN89C25BQ7VA" sending "PING" frame for stream ID 0 with length 8 and flags "ACK".
+2024-11-20 18:43:53.121 +06:00 [VRB] Connection id "0HN89C25BQ7VA" received "GOAWAY" frame for stream ID 0 with length 8 and flags 0x0.
+2024-11-20 18:43:53.122 +06:00 [DBG] Connection id "0HN89C25BQ7VA" received FIN.
+2024-11-20 18:43:53.132 +06:00 [DBG] Connection id "0HN89C25BQ7VA" is closing.
+2024-11-20 18:43:53.134 +06:00 [DBG] The connection queue processing loop for 0HN89C25BQ7VA completed.
+2024-11-20 18:43:53.135 +06:00 [DBG] Connection id "0HN89C25BQ7VA" is closed. The last processed stream ID was 15.
+2024-11-20 18:43:53.136 +06:00 [DBG] Connection id "0HN89C25BQ7VA" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:43:53.151 +06:00 [DBG] Connection id "0HN89C25BQ7VA" stopped.
+2024-11-20 18:47:57.656 +06:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2024-11-20 18:47:57.715 +06:00 [DBG] Hosting starting
+2024-11-20 18:47:57.733 +06:00 [INF] User profile is available. Using 'C:\Users\samiul\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-11-20 18:47:57.739 +06:00 [DBG] Reading data from file 'C:\Users\samiul\AppData\Local\ASP.NET\DataProtection-Keys\key-0e2b45f3-b97d-4eb6-8324-a192d50ef09d.xml'.
+2024-11-20 18:47:57.745 +06:00 [DBG] Found key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d}.
+2024-11-20 18:47:57.750 +06:00 [DBG] Considering key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} with expiration date 2025-01-27 09:28:07Z as default key.
+2024-11-20 18:47:57.753 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-20 18:47:57.755 +06:00 [DBG] Decrypting secret element using Windows DPAPI.
+2024-11-20 18:47:57.757 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2024-11-20 18:47:57.760 +06:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2024-11-20 18:47:57.762 +06:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2024-11-20 18:47:57.763 +06:00 [DBG] Using key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} as the default key.
+2024-11-20 18:47:57.764 +06:00 [DBG] Key ring with default key {0e2b45f3-b97d-4eb6-8324-a192d50ef09d} was loaded during application startup.
+2024-11-20 18:47:57.865 +06:00 [INF] Now listening on: https://localhost:7276
+2024-11-20 18:47:57.866 +06:00 [INF] Now listening on: http://localhost:5193
+2024-11-20 18:47:57.867 +06:00 [DBG] Loaded hosting startup assembly EcommerceWebApi
+2024-11-20 18:47:57.867 +06:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2024-11-20 18:47:57.868 +06:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2024-11-20 18:47:57.869 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-11-20 18:47:57.870 +06:00 [INF] Hosting environment: Development
+2024-11-20 18:47:57.870 +06:00 [INF] Content root path: C:\Users\samiul\EcommerceWebApi
+2024-11-20 18:47:57.871 +06:00 [DBG] Hosting started
+2024-11-20 18:47:58.301 +06:00 [DBG] Connection id "0HN89C67QD6CT" received FIN.
+2024-11-20 18:47:58.301 +06:00 [DBG] Connection id "0HN89C67QD6CS" received FIN.
+2024-11-20 18:47:58.301 +06:00 [DBG] Connection id "0HN89C67QD6CT" accepted.
+2024-11-20 18:47:58.301 +06:00 [DBG] Connection id "0HN89C67QD6CS" accepted.
+2024-11-20 18:47:58.306 +06:00 [DBG] Connection id "0HN89C67QD6CT" started.
+2024-11-20 18:47:58.306 +06:00 [DBG] Connection id "0HN89C67QD6CS" started.
+2024-11-20 18:47:58.316 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-20 18:47:58.316 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-11-20 18:47:58.345 +06:00 [DBG] Connection id "0HN89C67QD6CS" stopped.
+2024-11-20 18:47:58.345 +06:00 [DBG] Connection id "0HN89C67QD6CT" stopped.
+2024-11-20 18:47:58.348 +06:00 [DBG] Connection id "0HN89C67QD6CS" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:47:58.349 +06:00 [DBG] Connection id "0HN89C67QD6CT" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:48:01.244 +06:00 [DBG] Connection id "0HN89C67QD6CU" accepted.
+2024-11-20 18:48:01.252 +06:00 [DBG] Connection id "0HN89C67QD6CU" started.
+2024-11-20 18:48:01.287 +06:00 [DBG] Connection id "0HN89C67QD6CV" accepted.
+2024-11-20 18:48:01.288 +06:00 [DBG] Connection id "0HN89C67QD6CV" started.
+2024-11-20 18:48:01.292 +06:00 [DBG] Connection id "0HN89C67QD6CV" received FIN.
+2024-11-20 18:48:01.296 +06:00 [DBG] Connection 0HN89C67QD6CU established using the following protocol: "Tls13"
+2024-11-20 18:48:01.296 +06:00 [DBG] Connection 0HN89C67QD6CV established using the following protocol: "Tls13"
+2024-11-20 18:48:01.310 +06:00 [DBG] Connection id "0HN89C67QD6CV" is closed. The last processed stream ID was 0.
+2024-11-20 18:48:01.311 +06:00 [DBG] Connection id "0HN89C67QD6CV" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-11-20 18:48:01.316 +06:00 [DBG] The connection queue processing loop for 0HN89C67QD6CV completed.
+2024-11-20 18:48:01.317 +06:00 [DBG] Connection id "0HN89C67QD6CV" stopped.
+2024-11-20 18:48:01.330 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger - null null
+2024-11-20 18:48:01.351 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/index.html - null null
+2024-11-20 18:48:01.398 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-20 18:48:01.398 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-11-20 18:48:01.409 +06:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2024-11-20 18:48:01.409 +06:00 [DBG] No candidates found for the request path '/swagger'
+2024-11-20 18:48:01.411 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:48:01.412 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:48:01.430 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger - 499 null null 103.6502ms
+2024-11-20 18:48:01.467 +06:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2024-11-20 18:48:01.479 +06:00 [DBG] Response markup was updated to include browser refresh script injection.
+2024-11-20 18:48:01.480 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/index.html - 200 null text/html;charset=utf-8 129.2257ms
+2024-11-20 18:48:01.509 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/swagger-ui.css - null null
+2024-11-20 18:48:01.509 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_vs/browserLink - null null
+2024-11-20 18:48:01.509 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - null null
+2024-11-20 18:48:01.512 +06:00 [DBG] No candidates found for the request path '/swagger/swagger-ui.css'
+2024-11-20 18:48:01.534 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:48:01.534 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_framework/aspnetcore-browser-refresh.js - 200 13766 application/javascript; charset=utf-8 25.1995ms
+2024-11-20 18:48:01.540 +06:00 [DBG] The file transmission was cancelled
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileContext.SendAsync()
+2024-11-20 18:48:01.544 +06:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-11-20 18:48:01.546 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/_vs/browserLink - 200 null text/javascript; charset=UTF-8 36.4906ms
+2024-11-20 18:48:01.546 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/swagger-ui.css - 499 143943 text/css 37.4665ms
+2024-11-20 18:48:01.563 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/favicon-16x16.png - null null
+2024-11-20 18:48:01.565 +06:00 [DBG] No candidates found for the request path '/swagger/favicon-16x16.png'
+2024-11-20 18:48:01.567 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:48:01.568 +06:00 [DBG] The file transmission was cancelled
+System.OperationCanceledException: The operation was canceled.
+   at System.Threading.CancellationToken.ThrowOperationCanceledException()
+   at System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.SendFileResponseExtensions.SendFileAsyncCore(HttpResponse response, IFileInfo file, Int64 offset, Nullable`1 count, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileContext.SendAsync()
+2024-11-20 18:48:01.571 +06:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2024-11-20 18:48:01.573 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/favicon-16x16.png - 499 665 image/png 9.6691ms
+2024-11-20 18:48:01.618 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - null null
+2024-11-20 18:48:01.620 +06:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2024-11-20 18:48:01.621 +06:00 [DBG] Request did not match any endpoints
+2024-11-20 18:48:01.689 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 72.1097ms
+2024-11-20 18:48:28.247 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7276/api/Product - application/json 182
+2024-11-20 18:48:28.255 +06:00 [DBG] 1 candidate(s) found for the request path '/api/Product'
+2024-11-20 18:48:28.258 +06:00 [DBG] Endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)' with route pattern 'api/Product' is valid for the request path '/api/Product'
+2024-11-20 18:48:28.259 +06:00 [DBG] Request matched endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:48:28.260 +06:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2024-11-20 18:48:28.262 +06:00 [DBG] The request has an origin header: 'https://localhost:7276'.
+2024-11-20 18:48:28.262 +06:00 [INF] CORS policy execution failed.
+2024-11-20 18:48:28.263 +06:00 [INF] Request origin https://localhost:7276 does not have permission to access the resource.
+2024-11-20 18:48:28.311 +06:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2024-11-20 18:48:28.314 +06:00 [INF] Executing endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:48:28.336 +06:00 [INF] Route matched with {action = "AddProduct", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddProduct(Contracts.Models.Product) on controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi).
+2024-11-20 18:48:28.338 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2024-11-20 18:48:28.339 +06:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2024-11-20 18:48:28.340 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2024-11-20 18:48:28.341 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2024-11-20 18:48:28.342 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2024-11-20 18:48:28.345 +06:00 [DBG] Executing controller factory for controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi)
+2024-11-20 18:48:28.495 +06:00 [DBG] Executed controller factory for controller EcommerceWebApi.Controllers.ProductController (EcommerceWebApi)
+2024-11-20 18:48:28.505 +06:00 [DBG] Attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product' ...
+2024-11-20 18:48:28.510 +06:00 [DBG] Attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product' using the name '' in request data ...
+2024-11-20 18:48:28.513 +06:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2024-11-20 18:48:28.521 +06:00 [DBG] Connection id "0HN89C67QD6CU", Request id "0HN89C67QD6CU:00000011": started reading request body.
+2024-11-20 18:48:28.522 +06:00 [DBG] Connection id "0HN89C67QD6CU", Request id "0HN89C67QD6CU:00000011": done reading request body.
+2024-11-20 18:48:28.541 +06:00 [DBG] JSON input formatter succeeded, deserializing to type 'Contracts.Models.Product'
+2024-11-20 18:48:28.542 +06:00 [DBG] Done attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:48:28.542 +06:00 [DBG] Done attempting to bind parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:48:28.543 +06:00 [DBG] Attempting to validate the bound parameter 'newProduct' of type 'Contracts.Models.Product' ...
+2024-11-20 18:48:28.573 +06:00 [DBG] Done attempting to validate the bound parameter 'newProduct' of type 'Contracts.Models.Product'.
+2024-11-20 18:48:28.723 +06:00 [DBG] LogDebug: Result of add Project: True
+2024-11-20 18:48:28.741 +06:00 [DBG] Found the endpoints ["EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi)"] for address (id=[string],action=[GetProduct],controller=[Product])
+2024-11-20 18:48:28.745 +06:00 [DBG] Successfully processed template api/Product/{id} for EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi) resulting in /api/Product/string and 
+2024-11-20 18:48:28.746 +06:00 [DBG] Link generation succeeded for endpoints ["EcommerceWebApi.Controllers.ProductController.GetProduct (EcommerceWebApi)"] with result /api/Product/string
+2024-11-20 18:48:28.752 +06:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2024-11-20 18:48:28.754 +06:00 [DBG] No information found on request to perform content negotiation.
+2024-11-20 18:48:28.755 +06:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2024-11-20 18:48:28.755 +06:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2024-11-20 18:48:28.756 +06:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2024-11-20 18:48:28.757 +06:00 [INF] Executing CreatedResult, writing value of type 'Contracts.Models.Product'.
+2024-11-20 18:48:28.764 +06:00 [INF] Executed action EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi) in 417.8973ms
+2024-11-20 18:48:28.766 +06:00 [INF] Executed endpoint 'EcommerceWebApi.Controllers.ProductController.AddProduct (EcommerceWebApi)'
+2024-11-20 18:48:28.767 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7276/api/Product - 201 null application/json; charset=utf-8 519.9197ms
